@@ -1,0 +1,1413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIER 2026–2027 · Participant Dashboard</title>
+<meta name="description" content="Participant dashboard for the Master in Industrial and Employment Relations 2026–2027, ITCILO and University of Turin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Sans:wdth,wght@62.5,600;62.5,700;87.5,300;87.5,400;87.5,600;87.5,700;100,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --itc-blue:#284B96; --itc-blue-80:#4E64A6; --itc-blue-60:#7885BC;
+  --itc-blue-40:#A4ABD4; --itc-blue-20:#D1D5EB; --itc-blue-08:#EDF0F8;
+  --itc-cyan:#00A3E0; --itc-cyan-dark:#0B6E99;
+  --itc-black:#2B2A29; --itc-grey-80:#5B5B5B; --itc-grey-60:#898989;
+  --itc-grey-40:#B2B3B3; --itc-grey-20:#D9DADA; --itc-white:#FFFFFF;
+  --bg:#F5F7FB;
+  /* competence-area accents, each at least 4.5:1 on white */
+  --a-fun:#284B96; --a-reg:#0B6E99; --a-for:#00706A; --a-dis:#A3450B;
+  --a-eco:#5E35A8; --a-var:#146B33; --a-dri:#9C1440; --a-the:#5B5B5B; --a-mil:#2B2A29;
+  --font-display:'Noto Sans','Arial Narrow',Arial,sans-serif;
+  --font-body:'Noto Sans','Segoe UI',system-ui,Arial,sans-serif;
+  --font-script:'Caveat',cursive;
+  --radius:14px;
+  --sh-1:0 1px 2px rgba(40,75,150,.05);
+  --sh-2:0 1px 2px rgba(40,75,150,.06), 0 6px 20px rgba(40,75,150,.07);
+  --sh-3:0 2px 4px rgba(40,75,150,.08), 0 16px 40px rgba(40,75,150,.12);
+  --maxw:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-body);font-stretch:87.5%;color:var(--itc-black);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--itc-cyan-dark);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--itc-cyan);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--itc-blue);line-height:1.12;margin:0 0 .5em}
+h1,h2{font-stretch:62.5%;font-weight:700;text-transform:uppercase;letter-spacing:.005em}
+h1{font-size:clamp(1.9rem,5.2vw,3.4rem);overflow-wrap:break-word;hyphens:auto}
+h2{font-size:clamp(1.5rem,3.6vw,2.3rem);margin-top:0}
+h3{font-size:1.05rem;font-weight:700;font-stretch:87.5%}
+h4{font-size:.95rem;font-weight:600;font-stretch:87.5%;color:var(--itc-blue-80)}
+p{margin:0 0 1em;overflow-wrap:break-word}
+h1,h2,h3,h4,li,dd,td,th,legend{overflow-wrap:break-word}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--itc-blue);color:#fff;padding:.6rem 1rem;z-index:300}
+.skip:focus{left:.5rem;top:.5rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* ---------- masthead ---------- */
+.logoband{background:var(--itc-blue)}
+.logoband .wrap{padding-top:1rem;padding-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.logoband .lb-itc{height:clamp(34px,4.4vw,52px);width:auto}
+.logoband .lb-unito{height:clamp(26px,3.4vw,40px);width:auto}
+@media (max-width:520px){.logoband .wrap{gap:1rem}.logoband .lb-itc{height:30px}.logoband .lb-unito{height:23px}}
+.footlogos{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-top:2rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.2)}
+.footlogos .lb-itc{height:44px;width:auto}
+.footlogos .lb-unito{height:34px;width:auto}
+@media (max-width:520px){.footlogos .lb-itc{height:32px}.footlogos .lb-unito{height:25px}}
+.masthead{background:var(--itc-white);border-bottom:1px solid var(--itc-grey-20)}
+.masthead-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.8rem;padding-bottom:.8rem}
+.t1{font-family:var(--font-display);font-stretch:62.5%;font-weight:700;text-transform:uppercase;color:var(--itc-blue);font-size:1.02rem;line-height:1.1;letter-spacing:.015em}
+.t2{font-size:.74rem;color:var(--itc-grey-80);line-height:1.3}
+.mast-meta{font-size:.68rem;color:var(--itc-grey-80);text-align:right;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media (max-width:680px){.mast-meta{display:none}}
+.brush{height:10px;background:var(--itc-blue);clip-path:polygon(0 0,100% 0,100% 55%,92% 100%,78% 45%,64% 90%,50% 40%,36% 85%,22% 45%,10% 95%,0 50%)}
+
+/* ---------- tabs ---------- */
+nav.tabs{background:var(--itc-white);position:sticky;top:0;z-index:100;border-bottom:2px solid var(--itc-blue-20);box-shadow:0 2px 12px rgba(40,75,150,.06)}
+.tablist{display:flex;gap:.1rem;overflow-x:auto;scrollbar-width:thin}
+.tablist::-webkit-scrollbar{height:4px}
+.tablist::-webkit-scrollbar-thumb{background:var(--itc-blue-40);border-radius:4px}
+.tab{appearance:none;background:none;border:0;border-bottom:3px solid transparent;font-family:var(--font-display);font-stretch:87.5%;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.78rem;color:var(--itc-grey-80);padding:1rem .9rem;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s}
+.tab:hover{color:var(--itc-blue)}
+.tab[aria-selected="true"]{color:var(--itc-blue);border-bottom-color:var(--itc-cyan)}
+.panel{display:none;animation:fade .22s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+/* ---------- primitives ---------- */
+.tag{display:inline-block;background:var(--itc-cyan-dark);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.3em .75em;border-radius:999px;white-space:nowrap}
+.tag.blue{background:var(--itc-blue)}
+.tag.ghost{background:transparent;color:var(--itc-blue);border:1.5px solid var(--itc-blue-40)}
+.tag.area{background:var(--ac,var(--itc-blue))}
+.tag.tbc{background:transparent;color:var(--itc-grey-80);border:1.5px solid var(--itc-grey-20)}
+.pills{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:clamp(1.1rem,2.4vw,1.6rem)}
+.card.quiet{box-shadow:var(--sh-1);border:1px solid var(--itc-grey-20)}
+.card.hero-weight{box-shadow:var(--sh-3)}
+.grid{display:grid;gap:1rem}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(245px,100%),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(185px,100%),1fr))}
+.glib{grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr))}
+.garea{grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
+section.block{padding:clamp(2rem,5vw,3.4rem) 0}
+section.block.alt{background:#fff}
+.lead{font-size:1.06rem;color:var(--itc-grey-80);max-width:74ch}
+.eyebrow{font-family:var(--font-display);font-stretch:87.5%;text-transform:uppercase;letter-spacing:.15em;font-size:.7rem;font-weight:700;color:var(--itc-cyan-dark);margin-bottom:.4rem}
+ul.dash{list-style:none;padding:0;margin:0 0 1em}
+ul.dash li{position:relative;padding-left:1.5rem;margin-bottom:.5rem}
+ul.dash li::before{content:"—";position:absolute;left:0;color:var(--itc-cyan);font-weight:700}
+.note{background:var(--itc-blue-08);border-left:4px solid var(--itc-blue);padding:.9rem 1.1rem;border-radius:0 8px 8px 0;font-size:.9rem}
+.note strong{color:var(--itc-blue)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;border:0;font-family:var(--font-body);font-stretch:87.5%;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;padding:.6rem 1.05rem;border-radius:999px;cursor:pointer;background:var(--itc-cyan-dark);color:#fff;text-decoration:none;transition:background .15s}
+.btn:hover{background:#084F70;text-decoration:none;color:#fff}
+.btn.ghost{background:#fff;color:var(--itc-blue);border:1.5px solid var(--itc-blue-40)}
+.btn.ghost:hover{background:var(--itc-blue-08);color:var(--itc-blue)}
+.btn.sm{font-size:.68rem;padding:.45rem .8rem}
+.empty{background:#fff;border-radius:var(--radius);padding:2.5rem 1rem;text-align:center;color:var(--itc-grey-80);box-shadow:var(--sh-2)}
+.stat{background:#fff;border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--sh-2);border-top:4px solid var(--itc-cyan)}
+.stat .n{font-family:var(--font-display);font-stretch:62.5%;font-weight:700;font-size:2.2rem;color:var(--itc-blue);line-height:1}
+.stat .l{font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--itc-grey-80);margin-top:.35rem}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);background:var(--itc-blue)}
+@media (max-width:1080px){.hero{grid-template-columns:1fr}}
+.hero-panel{padding:clamp(1.6rem,5vw,3.6rem);color:#fff;display:flex;flex-direction:column;justify-content:center}
+.hero-panel h1{color:#fff;margin:.6rem 0 .3rem}
+.hero-sub{font-family:var(--font-display);font-stretch:87.5%;color:#8FD8F5;font-weight:600;font-size:clamp(1rem,2.2vw,1.25rem);margin-bottom:1.1rem;letter-spacing:.02em}
+.hero-figure{position:relative;background:#DFF4FC}
+.hero-figure img{width:100%;height:100%;object-fit:cover;object-position:center top;min-height:240px}
+.hero-figure figcaption{position:absolute;right:.6rem;bottom:.5rem;background:rgba(43,42,41,.72);color:#fff;font-size:.62rem;padding:.25rem .55rem;border-radius:4px;letter-spacing:.03em}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.9rem 1.2rem;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.25)}
+.meta .k{display:block;font-size:.6rem;text-transform:uppercase;letter-spacing:.13em;color:#A9C4F0;margin-bottom:.15rem}
+.meta .v{display:block;font-weight:600;font-size:.92rem;color:#fff}
+.cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--itc-cyan);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;padding:.8rem 1.4rem;border-radius:999px;margin-top:1.4rem;align-self:flex-start}
+.cta:hover{background:#0090c7;text-decoration:none}
+
+/* ---------- now panel ---------- */
+.nowband{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);border-bottom:1px solid var(--itc-grey-20)}
+.nowgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:1rem;padding:1.6rem 0 2rem}
+@media (max-width:900px){.nowgrid{grid-template-columns:1fr}}
+.nextcard{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-3);overflow:hidden;border-top:5px solid var(--ac,var(--itc-cyan))}
+.nextcard .in{padding:1.3rem 1.4rem}
+.nextcard .when{font-family:var(--font-display);font-stretch:62.5%;font-weight:700;text-transform:uppercase;color:var(--ac,var(--itc-blue));font-size:.75rem;letter-spacing:.12em}
+.nextcard h3{font-size:clamp(1.15rem,2.4vw,1.5rem);margin:.35rem 0 .5rem;text-transform:none;font-stretch:87.5%}
+.nextcard .rp{font-size:.92rem;color:var(--itc-grey-80)}
+.nextcard .rp b{color:var(--itc-black)}
+.nextcard .read{font-size:.85rem;color:var(--itc-cyan-dark);margin-top:.4rem}
+.countdown{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.cd{background:var(--itc-blue-08);border-radius:10px;padding:.55rem .85rem;min-width:88px}
+.cd .n{font-family:var(--font-display);font-stretch:62.5%;font-weight:700;font-size:1.5rem;color:var(--itc-blue);line-height:1}
+.cd .l{font-size:.62rem;text-transform:uppercase;letter-spacing:.09em;color:var(--itc-grey-80);margin-top:.15rem}
+.milestones{display:grid;gap:.55rem;align-content:start}
+.ms{background:#fff;border-radius:12px;box-shadow:var(--sh-1);border:1px solid var(--itc-grey-20);padding:.75rem 1rem;display:flex;align-items:center;gap:.85rem}
+.ms .dot{width:10px;height:10px;border-radius:50%;flex:0 0 10px;background:var(--ac,var(--itc-cyan))}
+.ms .txt{flex:1;min-width:0}
+.ms .txt b{display:block;font-size:.9rem;color:var(--itc-black);font-weight:600}
+.ms .txt span{font-size:.75rem;color:var(--itc-grey-80)}
+.ms .days{font-family:var(--font-display);font-stretch:62.5%;font-weight:700;color:var(--itc-blue);font-size:1.05rem;white-space:nowrap}
+
+/* ---------- progress ---------- */
+.prog{height:8px;background:var(--itc-blue-20);border-radius:999px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--itc-cyan);transition:width .4s}
+.progtxt{font-size:.75rem;color:var(--itc-grey-80);margin-top:.35rem}
+
+/* ---------- join ---------- */
+.btn.join{background:#2D8CFF}
+.btn.join:hover{background:#1a7ae8}
+.btn.join svg{flex:0 0 15px}
+.btn.join.lg{font-size:.82rem;padding:.8rem 1.4rem}
+.joinbar{margin-bottom:1.2rem}
+.joincard{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);border-left:5px solid #2D8CFF;padding:1.2rem 1.3rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.joincard.live{border-left-color:var(--a-dri);box-shadow:var(--sh-3)}
+.joincard .jc-txt{flex:1 1 320px;min-width:0}
+.joincard h3{margin:.15rem 0 .35rem;text-transform:none;font-size:1.08rem}
+.joincard p{margin:0;font-size:.88rem;color:var(--itc-grey-80)}
+.jc-eyebrow{font-family:var(--font-display);font-stretch:87.5%;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;font-weight:700;color:#2D8CFF}
+.joincard.live .jc-eyebrow{color:var(--a-dri)}
+.jc-act{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.daylink{display:inline-flex;align-items:center;gap:.35rem;margin-left:.8rem;background:rgba(255,255,255,.16);color:#fff;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.25rem .7rem;border-radius:999px;border:1px solid rgba(255,255,255,.35)}
+.daylink:hover{background:#2D8CFF;border-color:#2D8CFF;text-decoration:none;color:#fff}
+.daylink.live{background:#2D8CFF;border-color:#2D8CFF}
+.daylink svg{width:13px;height:13px;flex:0 0 13px}
+.seslink{display:inline-flex;align-items:center;gap:.35rem;margin-top:.55rem;background:#2D8CFF;color:#fff;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.32rem .8rem;border-radius:999px;text-decoration:none}
+.seslink:hover{background:#1a7ae8;color:#fff;text-decoration:none}
+.seslink svg{width:13px;height:13px;flex:0 0 13px}
+
+/* ---------- spine ---------- */
+.spine{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:1.2rem 1.3rem 1rem}
+.spine .track{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:.5rem 0 .2rem;position:relative;background:var(--itc-grey-20)}
+.spine .seg{position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-stretch:62.5%;font-weight:700;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;overflow:hidden;border-right:2px solid #fff;cursor:pointer;transition:filter .15s}
+.spine .seg:last-child{border-right:0}
+.spine .seg:hover,.spine .seg:focus-visible{filter:brightness(1.15)}
+.spine .seg span{padding:0 .35rem;white-space:nowrap}
+.spine .seg.tight span{display:none}
+.spine .axis{display:flex;justify-content:space-between;font-size:.68rem;color:var(--itc-grey-80);letter-spacing:.05em;text-transform:uppercase}
+.spine .today{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--itc-black);z-index:3}
+.spine .today::after{content:"";position:absolute;top:-5px;left:-4px;border:5px solid transparent;border-top-color:var(--itc-black)}
+.spine .exam{position:absolute;top:0;bottom:0;width:4px;background:#7A1F2B;z-index:2}
+.spinelegend{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin-top:.9rem;font-size:.72rem;color:var(--itc-grey-80)}
+.spinelegend span{display:flex;align-items:center;gap:.35rem}
+.spinelegend i{width:11px;height:11px;border-radius:3px;flex:0 0 11px}
+
+.areacard{appearance:none;border:0;padding:0;background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);
+  overflow:hidden;text-align:left;cursor:pointer;display:flex;flex-direction:column;font:inherit;
+  border-top:4px solid var(--ac,var(--itc-blue));transition:transform .15s,box-shadow .15s}
+.areacard:hover{transform:translateY(-3px);box-shadow:var(--sh-3)}
+.areacard img{width:100%;height:auto;aspect-ratio:8/5;object-fit:cover;background:#DFF4FC;display:block}
+.ac-body{padding:1rem 1.15rem 1.15rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.ac-num{font-family:var(--font-display);font-stretch:62.5%;font-weight:700;font-size:1.35rem;line-height:1;color:var(--ac,var(--itc-blue));opacity:.45}
+.ac-name{font-family:var(--font-display);font-stretch:87.5%;font-weight:700;color:var(--ac,var(--itc-blue));font-size:1.02rem;line-height:1.2;overflow-wrap:break-word}
+.ac-d{font-size:.85rem;color:var(--itc-grey-80);overflow-wrap:break-word}
+.ac-n{margin-top:auto;padding-top:.5rem;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ac,var(--itc-blue))}
+
+/* ---------- toolbar ---------- */
+.toolbar{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:1rem;margin-bottom:1.2rem;position:sticky;top:54px;z-index:50}
+.toolbar .row{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}
+.search{flex:1 1 230px;display:flex;align-items:center;gap:.5rem;border:1.5px solid var(--itc-grey-20);border-radius:999px;padding:.5rem .9rem;background:#fff}
+.search input{border:0;outline:0;flex:1;font-family:inherit;font-size:.9rem;background:none;min-width:0}
+select.sel{border:1.5px solid var(--itc-grey-20);border-radius:999px;padding:.55rem .9rem;font-family:inherit;font-size:.85rem;background:#fff;color:var(--itc-black);max-width:100%}
+.chipbar{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.75rem}
+.chip{appearance:none;border:1.5px solid var(--itc-grey-20);background:#fff;color:var(--itc-grey-80);font-family:var(--font-body);font-stretch:87.5%;font-size:.72rem;font-weight:600;padding:.35rem .75rem;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:.15s}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--ac,var(--itc-blue));flex:0 0 9px}
+.chip:hover{border-color:var(--ac,var(--itc-cyan));color:var(--itc-blue)}
+.chip[aria-pressed="true"]{background:var(--ac,var(--itc-blue));border-color:var(--ac,var(--itc-blue));color:#fff}
+.chip[aria-pressed="true"] .dot{background:#fff}
+.count{font-size:.78rem;color:var(--itc-grey-80);margin:.3rem 0 1rem}
+.count b{color:var(--itc-blue)}
+
+/* ---------- agenda ---------- */
+.daygroup{margin-bottom:1.1rem;background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);overflow:hidden}
+.dayhead{display:flex;align-items:baseline;gap:.7rem;background:var(--itc-blue);color:#fff;padding:.7rem 1.1rem;flex-wrap:wrap}
+.dayhead .dow{font-family:var(--font-display);font-stretch:87.5%;text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;color:#9FD9F5}
+.dayhead .dt{font-family:var(--font-display);font-stretch:62.5%;font-weight:700;text-transform:uppercase;font-size:1.05rem;letter-spacing:.03em}
+.dayhead .wk{margin-left:auto;font-size:.66rem;color:#C3D3F0;letter-spacing:.06em;text-transform:uppercase}
+.sess{display:grid;grid-template-columns:104px 1fr auto;border-top:1px solid var(--itc-grey-20);position:relative}
+.sess::before{content:"";position:absolute;left:104px;top:0;bottom:0;width:7px;border-left:3px solid #fff;box-sizing:border-box;background:var(--ac,var(--itc-blue))}
+.sess:first-of-type{border-top:0}
+@media (max-width:620px){.sess{grid-template-columns:78px 1fr auto}.sess::before{left:78px}}
+.rail{background:var(--itc-blue);color:#fff;padding:.9rem .6rem;text-align:center;font-family:var(--font-display);font-stretch:62.5%;font-weight:700;font-size:.88rem;display:flex;flex-direction:column;justify-content:center;gap:.15rem}
+.rail .to{font-weight:400;font-stretch:87.5%;font-size:.7rem;color:#A9C4F0}
+.sbody{padding:.9rem 1.1rem .9rem 1.3rem;min-width:0}
+.sbody h4{margin:.35rem 0;color:var(--itc-blue);font-size:1rem;font-weight:700;font-stretch:87.5%}
+.sbody .rp{font-size:.85rem;color:var(--itc-grey-80)}
+.sbody .rp b{color:var(--itc-black);font-weight:600}
+.sbody .read{font-size:.8rem;color:var(--itc-cyan-dark);font-style:italic;margin-top:.3rem}
+.sbody .read::before{content:"— ";font-style:normal;font-weight:700}
+.mark{align-self:center;margin:0 .9rem;appearance:none;border:2px solid var(--itc-grey-20);background:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;flex:0 0 30px;display:grid;place-items:center;color:transparent;font-size:.9rem;font-weight:700;transition:.15s}
+.mark:hover{border-color:var(--itc-cyan)}
+.mark[aria-pressed="true"]{background:var(--a-var);border-color:var(--a-var);color:#fff}
+.sess.done .sbody h4{color:var(--itc-grey-80)}
+.marker{border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1.1rem;box-shadow:var(--sh-2)}
+.marker.exam{background:#7A1F2B;color:#fff}
+.marker.exam h3{color:#fff;margin:0 0 .25rem;font-size:1rem}
+.marker.exam p{margin:0;font-size:.85rem;color:#F2D5D9}
+.marker.brk{background:var(--itc-grey-20);color:var(--itc-grey-80);text-align:center;font-family:var(--font-display);font-stretch:87.5%;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700}
+
+/* ---------- sub-tabs ---------- */
+.subtabs{display:flex;flex-wrap:wrap;gap:.4rem;background:var(--itc-blue-20);padding:.35rem;border-radius:999px;margin-bottom:1.4rem;width:fit-content;max-width:100%}
+@media (max-width:400px){.subtabs{border-radius:18px;width:100%}.subtab{flex:1 1 auto;text-align:center}}
+.subtab{appearance:none;border:0;background:transparent;font-family:var(--font-display);font-stretch:87.5%;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.75rem;color:var(--itc-blue);padding:.55rem 1.1rem;border-radius:999px;cursor:pointer;white-space:nowrap}
+.subtab[aria-selected="true"]{background:var(--itc-blue);color:#fff}
+
+/* ---------- faculty ---------- */
+.fac{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:1.1rem;border-left:5px solid var(--ac,var(--itc-blue));display:flex;flex-direction:column;gap:.5rem}
+.fac h3{margin:0;font-size:1rem;text-transform:none;overflow-wrap:anywhere}
+.fac .n{font-size:.75rem;color:var(--itc-grey-80);text-transform:uppercase;letter-spacing:.07em}
+.fac ul{margin:0;padding:0;list-style:none;display:grid;gap:.25rem;font-size:.82rem;color:var(--itc-grey-80)}
+.fac ul li{display:flex;gap:.5rem}
+.fac ul li em{font-style:normal;color:var(--itc-blue);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---------- library ---------- */
+.book{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);overflow:hidden;display:flex;flex-direction:column}
+.book .spine2{background:linear-gradient(135deg,var(--itc-blue),var(--itc-blue-60));color:#fff;padding:1.1rem 1.2rem}
+.book .spine2 .no{font-family:var(--font-display);font-stretch:62.5%;font-size:1.7rem;font-weight:700;line-height:1;color:#9FD9F5}
+.book .spine2 h3{color:#fff;margin:.35rem 0 0;font-size:1.02rem;text-transform:none}
+.book .inner{padding:1.1rem 1.2rem;flex:1;display:flex;flex-direction:column;gap:.6rem}
+.book .cite{font-size:.79rem;color:var(--itc-grey-80);border-top:1px solid var(--itc-grey-20);padding-top:.6rem;margin:0}
+.book .desc{font-size:.88rem;color:var(--itc-black);margin:0}
+.book .spine2{background:linear-gradient(135deg,var(--ac,var(--itc-blue)),var(--itc-blue-60))}
+.areahead{display:flex;gap:.9rem;align-items:flex-start;border-left:5px solid var(--ac,var(--itc-blue));background:#fff;border-radius:var(--radius);box-shadow:var(--sh-1);padding:1rem 1.2rem;margin-top:1.8rem}
+.areahead-dot{width:12px;height:12px;border-radius:50%;background:var(--ac,var(--itc-blue));flex:0 0 12px;margin-top:.42rem}
+.areahead h4{margin:0 0 .2rem;color:var(--ac,var(--itc-blue));font-size:1.05rem;font-weight:700;text-transform:uppercase;font-stretch:62.5%;letter-spacing:.02em}
+.areahead p{margin:0;font-size:.86rem;color:var(--itc-grey-80)}
+.book .actions{margin-top:auto;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.tick{display:inline-flex;align-items:center;gap:.45rem;font-size:.75rem;font-weight:600;color:var(--itc-grey-80);cursor:pointer;text-transform:uppercase;letter-spacing:.05em}
+.tick input{accent-color:var(--a-var);width:17px;height:17px}
+.readrow{display:flex;align-items:center;gap:.6rem;font-size:.88rem;padding:.45rem 0;border-bottom:1px solid var(--itc-grey-20)}
+.readrow:last-child{border-bottom:0}
+.readrow input{accent-color:var(--a-var);width:17px;height:17px;flex:0 0 17px}
+.readrow label{cursor:pointer;flex:1}
+.readrow.done label{color:var(--itc-grey-80);text-decoration:line-through}
+
+/* ---------- tools ---------- */
+.tool{display:flex;gap:.9rem;align-items:flex-start;background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:1.1rem;border-left:5px solid var(--itc-cyan);transition:transform .15s,box-shadow .15s}
+.tool:hover{transform:translateY(-2px);box-shadow:var(--sh-3);text-decoration:none}
+.tool .ico{flex:0 0 40px;width:40px;height:40px;border-radius:10px;background:var(--itc-blue-08);color:var(--itc-blue);display:grid;place-items:center;font-family:var(--font-display);font-stretch:62.5%;font-weight:700;font-size:.95rem}
+.tool h3{margin:0 0 .2rem;text-transform:none;font-size:.97rem}
+.tool p{margin:0;font-size:.78rem;color:var(--itc-grey-80)}
+
+/* ---------- thesis ---------- */
+.timeline{position:relative;padding-left:1.6rem}
+.timeline::before{content:"";position:absolute;left:6px;top:.4rem;bottom:.4rem;width:3px;background:var(--itc-blue-20);border-radius:3px}
+.tl{position:relative;margin-bottom:1.1rem}
+.tl::before{content:"";position:absolute;left:-1.6rem;top:.35rem;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--itc-cyan)}
+.tl.key::before{border-color:var(--a-dri);background:var(--a-dri)}
+.tl .d{font-family:var(--font-display);font-stretch:87.5%;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;color:var(--itc-cyan-dark)}
+.tl.key .d{color:var(--a-dri)}
+.tl h4{margin:.1rem 0 .15rem;color:var(--itc-blue);font-size:1rem;font-weight:700}
+.tl p{margin:0;font-size:.88rem;color:var(--itc-grey-80)}
+.crit{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:1.1rem 1.2rem;border-top:4px solid var(--itc-blue)}
+.crit .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--itc-blue);color:#fff;font-family:var(--font-display);font-stretch:62.5%;font-weight:700;font-size:.82rem;margin-bottom:.5rem}
+.crit h3{margin:0 0 .4rem;font-size:.98rem}
+.crit p{margin:0;font-size:.85rem;color:var(--itc-grey-80)}
+.principle{background:var(--itc-blue);color:#fff;border-radius:var(--radius);padding:clamp(1.4rem,3vw,2.2rem)}
+.principle h3{color:#fff;font-stretch:62.5%;text-transform:uppercase;font-size:1.4rem}
+.principle .q{font-size:clamp(1.05rem,2.4vw,1.4rem);font-weight:600;color:#fff;border-left:4px solid var(--itc-cyan);padding-left:1rem;margin:.6rem 0 1.2rem}
+.prio{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.5rem}
+.prio div{background:rgba(255,255,255,.11);border-radius:8px;padding:.55rem .8rem;font-size:.82rem}
+.prio b{color:#8FD8F5}
+
+/* ---------- cohort ---------- */
+.bars{display:grid;gap:.5rem;margin-top:.6rem}
+.bar{display:grid;grid-template-columns:minmax(90px,34%) 1fr auto;gap:.7rem;align-items:center;font-size:.83rem}
+@media (max-width:520px){.bar{grid-template-columns:minmax(76px,42%) 1fr auto;font-size:.78rem}}
+.bar .k{color:var(--itc-grey-80);overflow-wrap:anywhere}
+.bar .t{background:var(--itc-blue-20);border-radius:999px;height:14px;overflow:hidden}
+.bar .t i{display:block;height:100%;background:var(--ac,var(--itc-blue));border-radius:999px;transition:width .5s ease}
+.bar .v{font-family:var(--font-display);font-stretch:62.5%;font-weight:700;color:var(--itc-blue);min-width:1.6em;text-align:right}
+.donutwrap{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;margin-top:.6rem}
+.donutwrap svg{width:130px;height:130px;flex:0 0 130px;transform:rotate(-90deg)}
+.legend{display:grid;gap:.4rem;font-size:.85rem}
+.legend span{display:flex;align-items:center;gap:.5rem}
+.legend i{width:12px;height:12px;border-radius:3px;flex:0 0 12px}
+.legend b{font-family:var(--font-display);font-stretch:62.5%;color:var(--itc-blue)}
+.mapwrap{margin-top:.6rem;overflow-x:auto}
+.mapwrap svg{width:100%;min-width:460px;height:auto;background:var(--itc-blue-08);border-radius:10px}
+.mapwrap svg a{text-decoration:none}
+.mapwrap svg a:hover circle{fill-opacity:1;stroke:#2B2A29}
+.mapwrap svg a:focus-visible circle{stroke:#00A3E0;stroke-width:3}
+#gmap{height:clamp(320px,46vh,520px);border-radius:10px;margin-top:.6rem;background:var(--itc-blue-08)}
+.bar .k{min-width:0}
+a.k{color:var(--itc-grey-80);text-decoration:none;overflow-wrap:anywhere}
+a.k:hover{color:var(--itc-blue);text-decoration:underline}
+button.kbtn{appearance:none;border:0;background:none;padding:0;font:inherit;color:var(--itc-grey-80);text-align:left;cursor:pointer;overflow-wrap:anywhere}
+button.kbtn:hover{color:var(--itc-blue);text-decoration:underline}
+.ml-btn{appearance:none;border:1.5px solid var(--itc-grey-20);background:#fff;border-radius:999px;padding:.3rem .75rem;font:inherit;font-size:.75rem;color:var(--itc-grey-80);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem}
+.ml-btn:hover{border-color:var(--itc-cyan);color:var(--itc-blue)}
+.ml-btn i{width:11px;height:11px;border-radius:50%;flex:0 0 11px}
+.ml-btn strong{color:var(--itc-blue);font-family:var(--font-display);font-stretch:62.5%}
+.filterstate{margin:.75rem 0 0;font-size:.8rem;color:var(--itc-grey-80)}
+.filterstate strong{color:var(--itc-blue)}
+.maphint{display:none;font-size:.75rem;color:var(--itc-grey-80);margin:.45rem 0 0}
+@media (max-width:640px){.maphint{display:block}}
+.maplegend{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.7rem;font-size:.75rem;color:var(--itc-grey-80)}
+.maplegend span{display:flex;align-items:center;gap:.4rem}
+.maplegend i{width:11px;height:11px;border-radius:50%;flex:0 0 11px}
+.pcard{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:1.1rem;border-top:4px solid var(--ac,var(--itc-cyan));display:flex;flex-direction:column;gap:.55rem}
+.pcard .top{display:flex;align-items:flex-start;gap:.75rem}
+.pcard .av{flex:0 0 42px;width:42px;height:42px;border-radius:50%;background:var(--ac,var(--itc-blue));color:#fff;display:grid;place-items:center;font-family:var(--font-display);font-stretch:62.5%;font-weight:700;font-size:.95rem}
+.pcard h3{margin:0;font-size:1rem;text-transform:none;overflow-wrap:anywhere}
+.pcard .sub{font-size:.76rem;color:var(--itc-grey-80);text-transform:uppercase;letter-spacing:.07em}
+.pcard dl{margin:0;display:grid;gap:.45rem;font-size:.85rem}
+.pcard dt{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--itc-grey-80)}
+.pcard dd{margin:0;color:var(--itc-black);overflow-wrap:anywhere}
+.pcard .pills{margin-top:auto;padding-top:.5rem}
+body.masked .pcard h3,body.masked .pcard .av{filter:blur(5px);user-select:none}
+.who{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:1.1rem;display:flex;gap:.85rem;align-items:flex-start;border-left:5px solid var(--itc-blue)}
+.who .ico{flex:0 0 38px;width:38px;height:38px;border-radius:50%;background:var(--itc-blue-08);color:var(--itc-blue);display:grid;place-items:center;font-weight:700;font-family:var(--font-display);font-stretch:62.5%;font-size:.9rem}
+.who p{margin:0;font-size:.9rem}
+ol.req{counter-reset:r;padding:0;margin:0}
+ol.req li{background:#fff;border-radius:10px;box-shadow:var(--sh-1);border:1px solid var(--itc-grey-20);padding:.85rem 1rem .85rem 3rem;position:relative;margin-bottom:.6rem;list-style:none;font-size:.92rem}
+ol.req li::before{counter-increment:r;content:counter(r);position:absolute;left:.9rem;top:.85rem;width:24px;height:24px;border-radius:50%;background:var(--itc-cyan-dark);color:#fff;display:grid;place-items:center;font-size:.76rem;font-weight:700;font-family:var(--font-display);font-stretch:62.5%}
+
+/* ---------- footer ---------- */
+footer{background:var(--itc-blue);color:#fff;margin-top:2rem}
+footer .wrap{padding-top:2.2rem;padding-bottom:2.2rem}
+footer h3{color:#fff}
+footer a{color:#8FD8F5}
+footer .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,255,.2);margin-top:1.5rem;padding-top:1rem}
+
+/* ---------- print ---------- */
+@media print{
+  @page{size:A4;margin:14mm}
+  html{scroll-behavior:auto}
+  body{background:#fff;font-size:10pt}
+  nav.tabs,.toolbar,.subtabs,.progwrap,.cta,.mark,.skip,.logoband,.prog,.brush,.spine .today,.btn,.tick,.readrow input{display:none!important}
+  .panel{display:none!important}
+  .panel.active{display:block!important}
+  .card,.daygroup,.stat,.spine,.pcard,.crit,.book,.fac,.who,.nextcard,.ms{box-shadow:none!important;border:1px solid #ccc!important;break-inside:avoid}
+  .daygroup{break-inside:auto}
+  .sess{break-inside:avoid}
+  .dayhead{background:#284B96!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .rail{background:#284B96!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .marker.exam{background:#7A1F2B!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hero{grid-template-columns:1fr}
+  .hero-figure{display:none}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555;word-break:break-all}
+  footer{background:#fff;color:#000}
+  footer a{color:#000}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="logoband">
+  <div class="wrap">
+    <img class="lb-itc" src="assets/logo-itcilo.png" alt="Turin School of Development, International Training Centre of the ILO">
+    <img class="lb-unito" src="assets/logo-unito.png" alt="Università di Torino">
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <div>
+      <div class="t1">Master in Industrial and Employment Relations</div>
+      <div class="t2">2026–2027 · Participant dashboard</div>
+    </div>
+    <div class="mast-meta">Online · ITCILO eCampus</div>
+  </div>
+  <div class="brush" aria-hidden="true"></div>
+</header>
+
+<nav class="tabs" aria-label="Dashboard sections">
+  <div class="wrap">
+    <div class="tablist" role="tablist">
+      <button class="tab" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true">Home</button>
+      <button class="tab" role="tab" id="tab-programme" aria-controls="panel-programme" aria-selected="false">Programme</button>
+      <button class="tab" role="tab" id="tab-resources" aria-controls="panel-resources" aria-selected="false">Resources</button>
+      <button class="tab" role="tab" id="tab-thesis" aria-controls="panel-thesis" aria-selected="false">Thesis</button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HOME ============ -->
+<div class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home" tabindex="-1">
+
+  <div class="hero">
+    <div class="hero-panel">
+      <div class="pills"><span class="tag">Online</span><span class="tag">Social dialogue</span><span class="tag ghost" style="color:#fff;border-color:rgba(255,255,255,.5)">University of Turin</span></div>
+      <h1>Master in Industrial and Employment Relations</h1>
+      <div class="hero-sub">21 September 2026 – 2 July 2027</div>
+      <p style="color:#D5E1F7;max-width:52ch;margin:0">A first level Master's Degree from the University of Turin, delivered online on the ITCILO eCampus with an optional residential phase in Turin.</p>
+      <div class="meta">
+        <div><span class="k">Mode</span><span class="v">Online · ITCILO eCampus</span></div>
+        <div><span class="k">Face to face</span><span class="v">Turin, 3–14 May 2027 (optional, to be confirmed)</span></div>
+        <div><span class="k">Language</span><span class="v">English</span></div>
+        <div><span class="k">Application deadline</span><span class="v">30 January 2026 (first intake)</span></div>
+        <div><span class="k">Tuition</span><span class="v">9,900 Euros</span></div>
+        <div><span class="k">Credits</span><span class="v">60 certified university credits</span></div>
+      </div>
+      <a class="cta" href="https://oarf2.itcilo.org/CST/A9718856/en" target="_blank" rel="noopener">Online application form →</a>
+    </div>
+    <figure class="hero-figure" style="margin:0">
+      <img src="assets/hero.jpg" alt="Illustration of a multi storey building in which governments, workers' organizations and employers' organizations meet, negotiate and work together.">
+      <figcaption>Cover image © ITCILO</figcaption>
+    </figure>
+  </div>
+
+  <div class="nowband">
+    <div class="wrap">
+      <div class="eyebrow" style="padding-top:1.6rem">Where you are</div>
+      <div class="nowgrid" id="nowGrid"></div>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="grid g4" style="margin-bottom:2.4rem">
+        <div class="stat"><div class="n" id="stHome1">—</div><div class="l">Live sessions</div></div>
+        <div class="stat"><div class="n">7</div><div class="l">Macro-competence areas</div></div>
+        <div class="stat"><div class="n">5</div><div class="l">Examinations</div></div>
+        <div class="stat"><div class="n">15h</div><div class="l">Minimum study per week</div></div>
+      </div>
+
+      <div class="grid g2">
+        <div>
+          <div class="eyebrow">Background</div>
+          <h2>Why this Master</h2>
+          <p>In a fast-changing environment (political, economic, social, cultural, technological) in which governments, workers' organizations and employers and business membership organizations have to adapt their strategies continuously, a better understanding of the contemporary trends and challenges of different industrial and employment relations in the world is a compelling need.</p>
+          <p>To provide labour relations practitioners the best learning environment and the opportunity to engage in deep discussions related to Industrial and Employment Relations, the International Training Centre of the International Labour Organization (ITCILO), in partnership with the University of Turin, Italy, is offering a Master in Industrial and Employment Relations. It includes a distance-learning phase with synchronous activities (weekly live Webinars), and an optional residential phase at the ITCILO campus in Turin, Italy, to deep dive in our learning centre, followed by a second distance learning phase for the preparation of the Master's thesis.</p>
+          <p>The online learning journey allows students to engage continuously with a global faculty coming from a wide range of institutions, from the ILO to universities, training and research institutions around the world. The Master also provides opportunity to live a learning experience with practitioners and students coming from all the regions of the world.</p>
+          <p>The Master's programme combines the sound academic background of the University of Turin with the ITCILO's international training experience. An international approach has been applied to the content, the methodology as well as to the composition of the faculty.</p>
+        </div>
+        <div class="grid" style="align-content:start">
+          <div class="card quiet" style="border-left:5px solid var(--itc-cyan)">
+            <h3>Modern methods</h3>
+            <p style="margin:0;font-size:.9rem;color:var(--itc-grey-80)">Learn by doing, through case studies, workshops, and group exercises.</p>
+          </div>
+          <div class="card quiet" style="border-left:5px solid var(--itc-cyan)">
+            <h3>Inspiring discussions</h3>
+            <p style="margin:0;font-size:.9rem;color:var(--itc-grey-80)">Exchange ideas with international students and faculty.</p>
+          </div>
+          <div class="card quiet" style="border-left:5px solid var(--itc-cyan)">
+            <h3>High-level resources</h3>
+            <p style="margin:0;font-size:.9rem;color:var(--itc-grey-80)">Engage with experts from the ILO and the ITCILO, practitioners and university professors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="eyebrow">Objectives</div>
+      <h2>What you will be able to do</h2>
+      <p class="lead">The Master in Industrial and Employment Relations is designed to provide a wide spectrum of knowledge and skills for those with professional interests in industrial and employment relations. In addition, students will be exposed to international and comparative industrial and employment relations systems with a view to better understanding the implications for current industrial relations systems and practices.</p>
+      <p style="margin-top:1.4rem"><strong style="color:var(--itc-blue)">On successful completion of the Master's programme, participants will be able to:</strong></p>
+      <ul class="dash" style="max-width:80ch">
+        <li>Describe industrial and employment relations systems with a comparative approach;</li>
+        <li>Critically reflect upon theoretical approaches and analyse their application to achieve effective industrial and employment relations strategies;</li>
+        <li>Apply multi-disciplinary knowledge to industrial relations-related decision making;</li>
+        <li>Apply tools and methodologies for effective labour-management relations at different levels of the economy from enterprise to the national and international level;</li>
+        <li>Advise government, employers' and workers' representatives on industrial and employment relations issues.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">Structure and content</div>
+      <h2>Three phases</h2>
+      <p class="lead">The Master's Programme will be divided into two mandatory distance-learning phases and one face-to-face component that is optional. During Phase 1, the programme's online sessions typically take place on Mondays and Thursdays from 14:00 to 15:30 and from 16:00 to 17:30 (CEST/CET, Turin time). Participants are informed in advance of any adjustments to the schedule.</p>
+      <div class="grid g3" style="margin-top:1.4rem">
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="background:var(--itc-blue);color:#fff;padding:1rem 1.2rem">
+            <div style="font-family:var(--font-display);font-stretch:87.5%;text-transform:uppercase;font-size:.68rem;letter-spacing:.14em;color:#9FD9F5">Phase 1 · Mandatory</div>
+            <h3 style="color:#fff;margin:.2rem 0 .3rem;font-size:1.1rem">Distance learning with live webinars</h3>
+            <div style="font-size:.82rem;color:#D5E1F7">21 September 2026 – 29 April 2027</div>
+          </div>
+          <div style="padding:1.1rem 1.2rem;font-size:.92rem">
+            <p>Students will be enrolled in an interactive e-learning program, which includes live webinars typically held on Mondays and Thursdays, amounting to 6 hours of instruction per week over these two days. Attendance at these sessions is mandatory.</p>
+            <p>In addition to the webinars, students will have access to a range of supplementary materials for both individual and collaborative study. They are expected to dedicate a minimum of 15 hours per week to their learning, which includes time for webinars, reading, and other activities.</p>
+            <p style="margin:0">Throughout the course, students will be supported by a tutor and they will also have the opportunity to participate in forums and engage in discussions with fellow students. This phase includes self-study, assignments, quizzes and exams.</p>
+          </div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="background:var(--itc-blue-60);color:#fff;padding:1rem 1.2rem">
+            <div style="font-family:var(--font-display);font-stretch:87.5%;text-transform:uppercase;font-size:.68rem;letter-spacing:.14em;color:#DCE6F8">Face to face · Optional</div>
+            <h3 style="color:#fff;margin:.2rem 0 .3rem;font-size:1.1rem">Residential phase, ITCILO campus, Turin</h3>
+            <div style="font-size:.82rem;color:#E6EDFA">3–14 May 2027 · To be confirmed</div>
+          </div>
+          <div style="padding:1.1rem 1.2rem;font-size:.92rem">
+            <p>The optional phase is designed to provide deep knowledge and skills for those with professional interests in industrial and employment relations, notably with an interest in negotiation skills and workplace practices. Students will be exposed to international and comparative industrial and employment relations practices and will be able to discuss and compare with their own countries' practices and context.</p>
+            <p>A study visit at the ILO Headquarters in Geneva will also be organized, providing students with engaging sessions with experts from the ILO, as well as a number of study visits to selected institutions and enterprises in Turin.</p>
+            <p style="margin:0;font-size:.85rem;color:var(--itc-grey-80)">All the study visits, including to the ILO Headquarters, will depend on availability and restrictions.</p>
+          </div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="background:var(--itc-blue);color:#fff;padding:1rem 1.2rem">
+            <div style="font-family:var(--font-display);font-stretch:87.5%;text-transform:uppercase;font-size:.68rem;letter-spacing:.14em;color:#9FD9F5">Phase 3 · Mandatory</div>
+            <h3 style="color:#fff;margin:.2rem 0 .3rem;font-size:1.1rem">Distance learning for the thesis</h3>
+            <div style="font-size:.82rem;color:#D5E1F7">26 April – 2 July 2027</div>
+          </div>
+          <div style="padding:1.1rem 1.2rem;font-size:.92rem">
+            <p>Students will be required to carry out individual research in their home country for the preparation and submission of a thesis.</p>
+            <p style="margin:0">The outline of the thesis is presented in the closing session of Phase 1 on <strong>29 April 2027</strong>, and the thesis is to be completed by <strong>2 July 2027</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="grid g2">
+        <div>
+          <div class="eyebrow">Methodology</div>
+          <h2>How you will learn</h2>
+          <p>Professors, practitioners and other resource persons will use lectures, case-studies, case law judgments, excerpts of collective agreements and legislation, discussions, group-work and practical exercises to strike a balance between theory and practice and to stimulate interaction with the resource persons and among students.</p>
+          <h3 style="margin-top:1.4rem">Resource persons</h3>
+          <p>Resource persons are selected based on their professional experience and subject matter expertise. They consist of experts from the ILO and ITCILO, university professors and practitioners.</p>
+          <p><a href="#programme" data-goto="programme" data-sub="faculty">See the full faculty index →</a></p>
+        </div>
+        <div>
+          <div class="eyebrow">Fees and applications</div>
+          <h2>Fees, applications and scholarships</h2>
+          <ul class="dash">
+            <li><strong>Tuition fees:</strong> 9,900 Euros payable by the student or his/her sponsoring organization.</li>
+            <li>Tuition and accommodation fees for the face-to-face 2027 to be determined. For information, the cost in 2026 was 3,490 Euros.</li>
+            <li><strong>Deadline to apply for the Master:</strong> 30 January 2026.</li>
+            <li><strong>Deadline to apply for the face-to-face optional phase:</strong> 31 January 2027.</li>
+          </ul>
+          <h3>Partial scholarships</h3>
+          <p style="font-size:.92rem">A limited number of partial scholarships is available, on a competitive basis, for students from developing countries. If you wish to apply for a partial scholarship, please specify it on the application form. The selection criteria will include academic and professional qualifications, organization, country of origin and gender balance. Apart from these partial scholarships, there is no other financial support provided by ITCILO including from ACTRAV and ACTEMP.</p>
+          <p style="font-size:.92rem;margin-bottom:0">The ITCILO's payment, cancellation and refund policy can be consulted at <a href="https://www.itcilo.org/turin-school-of-development/admission" target="_blank" rel="noopener">itcilo.org/turin-school-of-development/admission</a>.</p>
+          <div class="note" style="margin-top:1rem">Dates, fees and deadlines reproduced from the 2026–2027 flyer. <strong>Always check the live course page</strong> before quoting them.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PROGRAMME ============ -->
+<div class="panel" id="panel-programme" role="tabpanel" aria-labelledby="tab-programme" tabindex="-1">
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">Phase 1</div>
+      <h2>Programme 2026–2027</h2>
+      <p class="lead">Every live session of the distance-learning phase, from the opening on 21 September 2026 to the closing session on 29 April 2027. All times are Turin time (CEST/CET).</p>
+
+      <div class="grid g4" style="margin:1.6rem 0">
+        <div class="stat"><div class="n" id="stP1">—</div><div class="l">Live sessions</div></div>
+        <div class="stat"><div class="n" id="stP2">—</div><div class="l">Session days</div></div>
+        <div class="stat"><div class="n" id="stP3">—</div><div class="l">Confirmed resource persons</div></div>
+        <div class="stat"><div class="n">5</div><div class="l">Examinations</div></div>
+      </div>
+
+      <div class="joinbar" id="joinBar"></div>
+
+      <div class="spine" id="spine" style="margin-bottom:1.8rem"></div>
+
+      <div class="eyebrow" style="margin-top:2.4rem">Macro-competence areas</div>
+      <h3 style="font-size:1.3rem;text-transform:uppercase;font-stretch:62.5%;margin-bottom:.4rem">Seven areas of study</h3>
+      <p class="lead">Phase 1 is built around seven macro-competence areas. Select one to filter the agenda to its sessions.</p>
+      <div class="grid garea" id="areaCards" style="margin:1.4rem 0 .8rem"></div>
+      <p style="font-size:.75rem;color:var(--itc-grey-80);margin:0 0 2.2rem">Illustrations are details of the Master's cover image. © ITCILO.</p>
+
+      <div class="subtabs" role="tablist" aria-label="Programme views">
+        <button class="subtab" role="tab" id="sub-agenda" aria-controls="sp-agenda" aria-selected="true">Agenda</button>
+        <button class="subtab" role="tab" id="sub-faculty" aria-controls="sp-faculty" aria-selected="false">Faculty</button>
+      </div>
+
+      <div id="sp-agenda" role="tabpanel" aria-labelledby="sub-agenda">
+        <div class="toolbar">
+          <div class="row">
+            <label class="search">
+              <span aria-hidden="true" style="color:var(--itc-grey-60)">⌕</span>
+              <input type="search" id="q" placeholder="Search sessions, resource persons, readings" aria-label="Search the agenda">
+            </label>
+            <select class="sel" id="monthSel" aria-label="Jump to month"><option value="">All months</option></select>
+            <button class="chip" type="button" id="hideDone" aria-pressed="false" style="border-color:var(--a-var);color:var(--a-var)"><span class="dot" style="background:var(--a-var)"></span>Hide sessions I marked</button>
+            <button class="chip" type="button" id="onlyConf" aria-pressed="false" style="border-color:#146B33;color:#146B33"><span class="dot" style="background:#146B33"></span>Confirmed sessions only</button>
+            <button class="btn ghost sm" type="button" id="icsAll">Add confirmed sessions to calendar</button>
+            <button class="btn ghost sm" type="button" id="printBtn">Print</button>
+            <button class="btn ghost sm" type="button" id="resetBtn">Reset filters</button>
+          </div>
+          <div class="chipbar" id="chips"></div>
+        </div>
+
+        <div style="margin-bottom:1rem">
+          <div class="prog"><i id="attBar"></i></div>
+          <div class="progtxt" id="attTxt"></div>
+        </div>
+
+        <p class="count" id="count"></p>
+        <div id="agenda"></div>
+      </div>
+
+      <div id="sp-faculty" role="tabpanel" aria-labelledby="sub-faculty" hidden>
+        <p class="lead">The resource persons whose sessions are confirmed, in the order they first appear in the programme, with the sessions each leads. Experts from the ILO and ITCILO, university professors and practitioners. A name is published here only once the session has been confirmed in the agenda; sessions still being arranged appear in the agenda without a name.</p>
+        <div class="toolbar" style="position:static;margin-top:1.2rem">
+          <div class="row">
+            <label class="search">
+              <span aria-hidden="true" style="color:var(--itc-grey-60)">⌕</span>
+              <input type="search" id="fq" placeholder="Search a resource person or a session" aria-label="Search the faculty">
+            </label>
+          </div>
+        </div>
+        <p class="count" id="fCount"></p>
+        <div class="grid g2" id="faculty"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ RESOURCES ============ -->
+<div class="panel" id="panel-resources" role="tabpanel" aria-labelledby="tab-resources" tabindex="-1">
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">Learning resources</div>
+      <h2>Resources</h2>
+
+      <div class="subtabs" role="tablist" aria-label="Resource categories">
+        <div id="sp-tools" role="tabpanel">
+        <h3 style="font-size:1.25rem;text-transform:uppercase;font-stretch:62.5%">Self-guided tools</h3>
+        <p class="lead">Self-paced ITCILO and ILO tools on the eCampus. Work through them at your own pace alongside the live sessions. You will be asked to sign in to the eCampus.</p>
+        <div class="grid g2" style="margin-top:1.4rem" id="toolList"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ THESIS ============ -->
+<div class="panel" id="panel-thesis" role="tabpanel" aria-labelledby="tab-thesis" tabindex="-1">
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">Phase 3</div>
+      <h2>The Master's thesis</h2>
+      <p class="lead">Students are required to carry out individual research in their home country for the preparation and submission of a thesis. The thesis is assessed against the seven criteria of the MIER assessment framework. Students receive a PASS or FAIL outcome; in borderline cases the programme may require an oral examination.</p>
+
+      <div class="grid g4" id="thesisCountdown" style="margin:1.8rem 0"></div>
+
+      <div class="grid g2" style="align-items:start">
+        <div>
+          <h3 style="font-size:1.2rem;text-transform:uppercase;font-stretch:62.5%">Milestones</h3>
+          <div class="timeline" style="margin-top:1rem">
+            <div class="tl"><div class="d">5 November 2026</div><h4>Methodology of Research and Thesis: thesis topic</h4><p>Darrin Dookie</p></div>
+            <div class="tl"><div class="d">30 November 2026</div><h4>Methodology of Research and Thesis</h4><p>Darrin Dookie</p></div>
+            <div class="tl"><div class="d">1 March 2027</div><h4>Methodology of Research and Thesis 3 · Writing skills</h4><p>Darrin G. Dookie</p></div>
+            <div class="tl"><div class="d">15 April 2027</div><h4>Methodology of Research and Thesis 4: final thesis guidance</h4><p>Darrin G. Dookie</p></div>
+            <div class="tl"><div class="d">26 April – 2 July 2027</div><h4>Phase 3: distance learning for the drafting of the thesis</h4><p>Individual research carried out in the home country.</p></div>
+            <div class="tl key"><div class="d">29 April 2027</div><h4>Thesis outline presented</h4><p>Presented in the closing session of Phase 1, together with the MIER team.</p></div>
+            <div class="tl key"><div class="d">2 July 2027</div><h4>Thesis completed and submitted</h4><p>Submission within the set deadline and quality requirements is a condition for the award of the degree.</p></div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:1.2rem;text-transform:uppercase;font-stretch:62.5%">Formal requirements</h3>
+          <div class="card" style="margin-top:1rem">
+            <ul class="dash" style="margin-bottom:0">
+              <li>At least <strong>15,000 words</strong></li>
+              <li>Normally approximately <strong>40 to 60 pages</strong></li>
+              <li><strong>Times New Roman 12</strong></li>
+              <li><strong>1.5 line spacing</strong> for the text</li>
+              <li>Follow the <strong>approved thesis template</strong></li>
+              <li>Include appropriate academic references</li>
+              <li>Demonstrate appropriate research methodology</li>
+              <li>Contain a clear research question or problem</li>
+              <li>Provide appropriate analysis</li>
+              <li>Provide conclusions that answer the research question</li>
+            </ul>
+          </div>
+          <div class="note" style="margin-top:1rem">Footnotes and bibliography count toward the stated word count; annexes do not.</div>
+
+          <h3 style="font-size:1.2rem;text-transform:uppercase;font-stretch:62.5%;margin-top:2rem">The intellectual line</h3>
+          <div class="card">
+            <p style="font-size:.9rem;color:var(--itc-grey-80)">A strong thesis has a clear intellectual line. Each step should follow from the one before it.</p>
+            <div class="pills" style="gap:.35rem">
+              <span class="tag blue">Problem</span><span style="color:var(--itc-blue-80)">→</span>
+              <span class="tag blue">Research question</span><span style="color:var(--itc-blue-80)">→</span>
+              <span class="tag blue">Conceptual framework</span><span style="color:var(--itc-blue-80)">→</span>
+              <span class="tag blue">Methodology</span><span style="color:var(--itc-blue-80)">→</span>
+              <span class="tag blue">Evidence</span><span style="color:var(--itc-blue-80)">→</span>
+              <span class="tag blue">Analysis</span><span style="color:var(--itc-blue-80)">→</span>
+              <span class="tag blue">Answer</span><span style="color:var(--itc-blue-80)">→</span>
+              <span class="tag blue">Conclusion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1.2rem;text-transform:uppercase;font-stretch:62.5%;margin-top:2.6rem">The seven assessment criteria</h3>
+      <p class="lead">The thesis is assessed against seven criteria.</p>
+      <div class="grid g2" style="margin-top:1.2rem" id="critList"></div>
+
+      <div class="principle" style="margin-top:2.2rem">
+        <div class="eyebrow" style="color:#8FD8F5">Core academic principle</div>
+        <h3>Quality is not quantity</h3>
+        <p style="color:#D5E1F7;margin:0">The quality of a thesis is not determined by how much information it contains. The central question is:</p>
+        <div class="q">Does the thesis use appropriate evidence and scholarship to answer a clear research question through a coherent and critical argument?</div>
+        <div class="prio">
+          <div><b>Argument</b> over volume</div>
+          <div><b>Analysis</b> over description</div>
+          <div><b>Relevance</b> over quantity</div>
+          <div><b>Evidence</b> over assertion</div>
+          <div><b>Coherence</b> over complexity</div>
+          <div><b>Critical thinking</b> over summary</div>
+          <div><b>Answering the question</b> over adding material</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h3>MIER Secretariat</h3>
+        <p style="font-size:.88rem;color:#D5E1F7;margin:0">International Training Centre of the ILO<br>Programme on Social Protection, Governance and Tripartism<br>Viale Maestri del Lavoro, 10<br>10127 Turin, Italy</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p style="font-size:.88rem;color:#D5E1F7;margin:0">Tel. +39 011 693 6917<br><a href="mailto:mier@itcilo.org">mier@itcilo.org</a><br><a href="https://ecampus.itcilo.org" target="_blank" rel="noopener">ecampus.itcilo.org</a></p>
+      </div>
+      <div>
+        <h3>Apply</h3>
+        <p style="font-size:.88rem;color:#D5E1F7;margin:0"><a href="https://oarf2.itcilo.org/CST/A9718856/en" target="_blank" rel="noopener">Online application form</a><br><a href="https://www.itcilo.org/turin-school-of-development/admission" target="_blank" rel="noopener">Payment, cancellation and refund policy</a></p>
+      </div>
+    </div>
+    <div class="footlogos">
+      <img class="lb-itc" src="assets/logo-itcilo.png" alt="Turin School of Development, International Training Centre of the ILO">
+      <img class="lb-unito" src="assets/logo-unito.png" alt="Università di Torino">
+    </div>
+    <p class="small">Content reproduced from the MIER 2026–2027 flyer, the Phase 1 agenda and the ITCILO eCampus monthly feedback questionnaire. Cover image © ITCILO. Dates, fees and deadlines must be confirmed against the live course page on itcilo.org before being quoted. Copyright © International Training Centre of the International Labour Organization. All rights reserved.</p>
+  </div>
+</footer>
+
+<script id="agenda-data" type="application/json">[{"type":"session","n":1,"date":"2026-09-21","time":"14:00 to 15:30","title":"Session 1 - Opening MIER 26-27","rp":"MIER TEAM","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":2,"date":"2026-09-21","time":"16:00 to 17:30","title":"Masterclass 1 - Fundamentals of Industrial Relations","rp":"Ingrid Landau","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":3,"date":"2026-09-24","time":"14:00 to 15:30","title":"Introduction to Industrial Relations (concepts, definitions and approaches)","rp":"Pablo Sanz","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":4,"date":"2026-09-24","time":"16:00 to 17:30","title":"Introduction to Industrial Relations (concepts, definitions and approaches)","rp":"Pablo Sanz","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":5,"date":"2026-09-28","time":"14:00 to 15:30","title":"History of Industrial Relations: prehistory of IR","rp":"Conor Cradden","area":"Fundamentals of Industrial Relations","reading":"B. Kauffman - The roots of industrial relations","confirmed":true},{"type":"session","n":6,"date":"2026-09-28","time":"16:00 to 17:30","title":"History of Industrial Relations: during the WW I and II","rp":"Conor Cradden","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":8,"date":"2026-09-30","time":"14:00 to 15:30","title":"Social Problems and the role of Industrial Relations","rp":"","area":"Fundamentals of Industrial Relations","reading":"An introduction to varieties of capitalism","confirmed":false},{"type":"session","n":7,"date":"2026-10-01","time":"14:00 to 15:30","title":"History of Industrial Relations: neoliberalism and labour market restructuring","rp":"Conor Cradden","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":9,"date":"2026-10-05","time":"14:00 to 15:30","title":"Varieties of Capitalism","rp":"Oscar Molina","area":"Fundamentals of Industrial Relations","reading":"An introduction to varieties of capitalism","confirmed":true},{"type":"session","n":10,"date":"2026-10-05","time":"16:00 to 17:30","title":"Varieties of Capitalism","rp":"Oscar Molina","area":"Fundamentals of Industrial Relations","reading":"Varieties of institutional theory","confirmed":true},{"type":"session","n":11,"date":"2026-10-08","time":"14:00 to 15:30","title":"Work and social theory","rp":"Marek Korczynski","area":"Fundamentals of Industrial Relations","reading":"Work and social theory","confirmed":true},{"type":"session","n":12,"date":"2026-10-08","time":"16:00 to 17:30","title":"Work and social theory","rp":"Marek Korczynski","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":13,"date":"2026-10-13","time":"14:00 to 15:30","title":"Work and social theory (founding theorists - Marx, Durkheim and Weber)","rp":"Oscar Molina","area":"Fundamentals of Industrial Relations","reading":"Molina, O. (2017) Corporatism","confirmed":true},{"type":"session","n":14,"date":"2026-10-13","time":"16:00 to 17:30","title":"Work and social theory - contemporary sociology and post-development","rp":"Oscar Molina","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":15,"date":"2026-10-14","time":"14:00 to 15:30","title":"The state and governance of Industrial Relations","rp":"Oscar Molina","area":"Fundamentals of Industrial Relations","reading":"Mapping key dimensions of industrial relations","confirmed":true},{"type":"session","n":16,"date":"2026-10-14","time":"16:00 to 17:30","title":"Industrial Relations regimes and Corporatism","rp":"Oscar Molina","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":17,"date":"2026-10-19","time":"14:00 to 15:30","title":"How to measure quality of Industrial Relations","rp":"Pablo Sanz","area":"Fundamentals of Industrial Relations","reading":"Guidebook on how and why to measure quality of IR","confirmed":true},{"type":"session","n":18,"date":"2026-10-19","time":"16:00 to 17:30","title":"Evaluating Industrial Relations","rp":"Pablo Sanz","area":"Fundamentals of Industrial Relations","reading":"Workers Organizations","confirmed":true},{"type":"session","n":19,"date":"2026-10-22","time":"14:00 to 15:30","title":"Evaluating Industrial Relations","rp":"Pablo Sanz","area":"Fundamentals of Industrial Relations","reading":"Trade Unions in the Balance","confirmed":true},{"type":"session","n":20,"date":"2026-10-22","time":"16:00 to 17:30","title":"What are trade unions","rp":"Philippe Pochet","area":"Fundamentals of Industrial Relations","reading":"Introduction to the ILO","confirmed":true},{"type":"session","n":21,"date":"2026-10-26","time":"14:00 to 15:30","title":"Trade unions view on social dialogue","rp":"Philippe Pochet","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":22,"date":"2026-10-26","time":"16:00 to 17:30","title":"What does it mean working for a trade union in 2026?","rp":"Philippe Pochet","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":23,"date":"2026-10-29","time":"14:00 to 15:30","title":"Drivers influencing workers' organizations","rp":"Philippe Pochet","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":24,"date":"2026-10-29","time":"16:00 to 17:30","title":"What are Employers' and business membership organizations (EBMOs)?","rp":"ACTEMP","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":25,"date":"2026-11-02","time":"14:00 to 15:30","title":"What are Employers' and business membership organizations (EBMOs)?","rp":"ACTEMP","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":26,"date":"2026-11-02","time":"16:00 to 17:30","title":"What are Employers' and business membership organizations (EBMOs)?","rp":"ACTEMP","area":"Fundamentals of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":27,"date":"2026-11-05","time":"14:00 to 15:30","title":"Methodology of Research and Thesis - Thesis Topic","rp":"","area":"Thesis and Research Methodology","reading":"","confirmed":false},{"type":"exam","title":"EXAM 1","note":"Covers Macro-area 1: Fundamentals of Industrial Relations"},{"type":"session","n":28,"date":"2026-11-09","time":"14:00 to 15:30","title":"Masterclass 2 - The Regulatory Framework: Transnational Futures","rp":"Adelle Blackett","area":"The Regulatory Framework","reading":"","confirmed":true},{"type":"session","n":29,"date":"2026-11-09","time":"16:00 to 17:30","title":"Role of labour law and different types of systems (civil law / common law)","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"session","n":30,"date":"2026-11-12","time":"14:00 to 15:30","title":"International Labour Regulation","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"session","n":31,"date":"2026-11-12","time":"16:00 to 17:30","title":"International Labour Regulation","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"session","n":32,"date":"2026-11-16","time":"14:00 to 15:30","title":"The ILO and its ILS system","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"session","n":33,"date":"2026-11-16","time":"16:00 to 17:30","title":"The ILO and its ILS system","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"session","n":34,"date":"2026-11-19","time":"14:00 to 15:30","title":"International Labour Standards related to Freedom of Association","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"session","n":35,"date":"2026-11-19","time":"16:00 to 17:30","title":"The right to strike","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"session","n":36,"date":"2026-11-23","time":"14:00 to 15:30","title":"The Committee on Freedom of Association (CFA)","rp":"Evance Kalula","area":"The Regulatory Framework","reading":"International Labour Review","confirmed":true},{"type":"session","n":37,"date":"2026-11-23","time":"16:00 to 17:30","title":"The Committee on Freedom of Association (CFA)","rp":"Evance Kalula","area":"The Regulatory Framework","reading":"Guide ILO Supervisory System","confirmed":true},{"type":"session","n":38,"date":"2026-11-26","time":"14:00 to 15:30","title":"CEACR / CAS","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"session","n":39,"date":"2026-11-26","time":"16:00 to 17:30","title":"Industrial Relations in MENA","rp":"","area":"Variety of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":40,"date":"2026-11-30","time":"14:00 to 15:30","title":"Methodology of Research and Thesis","rp":"","area":"Thesis and Research Methodology","reading":"","confirmed":false},{"type":"session","n":41,"date":"2026-11-30","time":"16:00 to 17:30","title":"MNE Declaration","rp":"","area":"The Regulatory Framework","reading":"","confirmed":false},{"type":"exam","title":"EXAM 2","note":"Covers Macro-area 2: The Regulatory Framework, including the MENA case study (30 Nov slot freed for study time)"},{"type":"session","n":42,"date":"2026-12-03","time":"14:00 to 15:30","title":"Masterclass 3 - Introduction to Social Dialogue","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":43,"date":"2026-12-03","time":"16:00 to 17:30","title":"Social Dialogue: Global Trends","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":44,"date":"2026-12-07","time":"14:00 to 15:30","title":"Social Dialogue in Latin America and the Caribbean","rp":"","area":"Variety of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":45,"date":"2026-12-07","time":"16:00 to 17:30","title":"Labour Relations in the Public Sector","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":46,"date":"2026-12-10","time":"14:00 to 15:30","title":"Collective Bargaining","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":47,"date":"2026-12-10","time":"16:00 to 17:30","title":"Collective Bargaining","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":48,"date":"2026-12-14","time":"14:00 to 15:30","title":"Collective Bargaining","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":49,"date":"2026-12-14","time":"16:00 to 17:30","title":"Collective Bargaining","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":50,"date":"2026-12-17","time":"14:00 to 15:30","title":"Collective Bargaining","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":51,"date":"2026-12-17","time":"16:00 to 17:30","title":"Collective Bargaining","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"break","title":"CHRISTMAS / NEW YEAR BREAK, 18 Dec 2026 to 10 Jan 2027"},{"type":"session","n":52,"date":"2027-01-11","time":"14:00 to 15:30","title":"Collective Bargaining","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":53,"date":"2027-01-11","time":"16:00 to 17:30","title":"Collective Bargaining in the informal economy","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":54,"date":"2027-01-14","time":"14:00 to 15:30","title":"How to use DATA / How to collect DATA for IR","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":55,"date":"2027-01-14","time":"16:00 to 17:30","title":"DATA for Industrial Relations","rp":"","area":"Forms of Industrial Relations","reading":"Open access data sources for IR","confirmed":false},{"type":"session","n":56,"date":"2027-01-18","time":"12:00 to 13:30","title":"Industrial Relations in China","rp":"","area":"Variety of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":57,"date":"2027-01-18","time":"14:00 to 15:30","title":"Collective Bargaining: Practitioner perspective — Bargaining at the table","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":58,"date":"2027-01-21","time":"14:00 to 15:30","title":"International Framework Agreements","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":59,"date":"2027-01-21","time":"16:00 to 17:30","title":"International Framework Agreements","rp":"","area":"Forms of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":60,"date":"2027-01-25","time":"14:00 to 15:30","title":"Masterclass 4 - Dispute Resolution in society: a policy view","rp":"Nerine Kahn","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":true},{"type":"session","n":61,"date":"2027-01-25","time":"16:00 to 17:30","title":"From grievance to strike: understanding the escalation of labour disputes","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":62,"date":"2027-01-28","time":"14:00 to 15:30","title":"Introduction to Alternative Dispute Resolution Mechanisms","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":63,"date":"2027-01-28","time":"16:00 to 17:30","title":"Introduction to Alternative Dispute Resolution Mechanisms","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":64,"date":"2027-02-01","time":"14:00 to 15:30","title":"Theory of dispute resolution","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":65,"date":"2027-02-01","time":"16:00 to 17:30","title":"Theory of dispute resolution","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":66,"date":"2027-02-04","time":"14:00 to 15:30","title":"Psychology of Conflict","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":67,"date":"2027-02-04","time":"16:00 to 17:30","title":"Psychology of Conflict","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":68,"date":"2027-02-08","time":"14:00 to 15:30","title":"Psychology of Conflict","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":69,"date":"2027-02-08","time":"16:00 to 17:30","title":"Psychology of Conflict","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":70,"date":"2027-02-11","time":"14:00 to 15:30","title":"Dispute resolution at the workplace (grievances and integrated conflict mgmt)","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":71,"date":"2027-02-11","time":"16:00 to 17:30","title":"Dispute resolution at the workplace (grievances and integrated conflict mgmt)","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":72,"date":"2027-02-15","time":"14:00 to 15:30","title":"The role of HR in preventing disputes","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":73,"date":"2027-02-15","time":"16:00 to 17:30","title":"The role of HR in preventing disputes","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":74,"date":"2027-02-18","time":"14:00 to 15:30","title":"National labour dispute resolution systems","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":75,"date":"2027-02-18","time":"16:00 to 17:30","title":"Industrial Relations in Southeast Asia: Indonesia and the Philippines","rp":"","area":"Variety of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":76,"date":"2027-02-22","time":"14:00 to 15:30","title":"Management of a dispute resolution system","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":77,"date":"2027-02-22","time":"16:00 to 17:30","title":"Industrial Relations in the Commonwealth Caribbean","rp":"","area":"Variety of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":78,"date":"2027-02-25","time":"14:00 to 15:30","title":"Dispute resolution in developing economies: African & Asian perspectives","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":79,"date":"2027-02-25","time":"16:00 to 17:30","title":"The Role of Regional Human Rights Bodies","rp":"","area":"Labour Dispute Prevention and Resolution","reading":"","confirmed":false},{"type":"session","n":80,"date":"2027-03-01","time":"14:00 to 15:30","title":"Methodology of Research and Thesis 3","rp":"","area":"Thesis and Research Methodology","reading":"","confirmed":false},{"type":"session","n":81,"date":"2027-03-01","time":"16:00 to 17:30","title":"Writing Skills","rp":"","area":"Thesis and Research Methodology","reading":"","confirmed":false},{"type":"exam","title":"EXAM 3","note":"Covers Macro-areas 3+4: Forms of IR and Labour Dispute Prevention and Resolution, including the Latin America, China, Southeast Asia and Caribbean case studies"},{"type":"session","n":82,"date":"2027-03-04","time":"14:00 to 15:30","title":"Masterclass 5 - Drivers of IR: Forces reshaping the world of work","rp":"Evance Kalula","area":"Drivers of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":83,"date":"2027-03-04","time":"16:00 to 17:30","title":"Informal Economy and its challenges for IR","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":84,"date":"2027-03-08","time":"14:00 to 15:30","title":"Informal Economy and its challenges for IR - Africa","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":85,"date":"2027-03-08","time":"16:00 to 17:30","title":"Industrial Relations in Sub-Saharan Africa","rp":"","area":"Variety of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":86,"date":"2027-03-11","time":"14:00 to 15:30","title":"AI and HRM","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":87,"date":"2027-03-11","time":"16:00 to 17:30","title":"AI and HRM","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":88,"date":"2027-03-15","time":"14:00 to 15:30","title":"AI and the challenges it poses to gender equality","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":89,"date":"2027-03-15","time":"16:00 to 17:30","title":"AI and the challenges it poses to gender equality","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":90,"date":"2027-03-18","time":"14:00 to 15:30","title":"Gender dimensions of IR","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":91,"date":"2027-03-18","time":"16:00 to 17:30","title":"Gender dimensions of IR","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":92,"date":"2027-03-22","time":"13:00 to 14:30","title":"Climate change and IR","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":93,"date":"2027-03-22","time":"15:00 to 16:30","title":"Climate change and IR","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":94,"date":"2027-03-25","time":"14:00 to 15:30","title":"Platform Work and IR","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":95,"date":"2027-03-25","time":"16:00 to 17:30","title":"Platform Work and IR","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":96,"date":"2027-03-30","time":"14:00 to 15:30","title":"Impact of purchasing practices on IR","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":97,"date":"2027-03-30","time":"16:00 to 17:30","title":"Impact of purchasing practices on IR","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":98,"date":"2027-04-01","time":"14:00 to 15:30","title":"Business and Human Rights Due Diligence","rp":"Ingrid Landau","area":"Drivers of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":99,"date":"2027-04-01","time":"16:00 to 17:30","title":"Industrial Relations in Bangladesh","rp":"","area":"Variety of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":100,"date":"2027-04-05","time":"14:00 to 15:30","title":"Public initiatives: Trade Arrangements and labour provisions","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":101,"date":"2027-04-05","time":"16:00 to 17:30","title":"Private initiatives in Europe","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":102,"date":"2027-04-08","time":"14:00 to 15:30","title":"Trade and Labour Nexus in South America","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":103,"date":"2027-04-08","time":"16:00 to 17:30","title":"Public initiatives: Regional integration - Mercosur Declaration","rp":"","area":"Drivers of Industrial Relations","reading":"","confirmed":false},{"type":"exam","title":"EXAM 4","note":"Covers Macro-area 7: Drivers of Industrial Relations"},{"type":"session","n":104,"date":"2027-04-12","time":"14:00 to 15:30","title":"Masterclass 6 - Varieties of IR: European models in comparative perspective","rp":"Gerhard Bosch","area":"Variety of Industrial Relations","reading":"","confirmed":true},{"type":"session","n":105,"date":"2027-04-12","time":"16:00 to 17:30","title":"Comparative IR synthesis: pulling the seven regional cases together","rp":"","area":"Variety of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":106,"date":"2027-04-15","time":"14:00 to 15:30","title":"Masterclass 7 - Economic Forces in IR","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":107,"date":"2027-04-15","time":"16:00 to 17:30","title":"Methodology of Research and Thesis 4 - Final thesis guidance","rp":"","area":"Thesis and Research Methodology","reading":"","confirmed":false},{"type":"session","n":108,"date":"2027-04-19","time":"14:00 to 15:30","title":"Introduction to the Labour Market I","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":109,"date":"2027-04-19","time":"16:00 to 17:30","title":"Introduction to the Labour Market II","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":110,"date":"2027-04-22","time":"14:00 to 15:30","title":"Labour Market Institutions I","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":111,"date":"2027-04-22","time":"16:00 to 17:30","title":"Labour Market Institutions II: wage-setting and digital labour markets","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":112,"date":"2027-04-26","time":"14:00 to 15:30","title":"Productivity and IR I","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":113,"date":"2027-04-26","time":"16:00 to 17:30","title":"Productivity and IR II","rp":"","area":"Economics of Industrial Relations","reading":"","confirmed":false},{"type":"session","n":114,"date":"2027-04-29","time":"14:00 to 15:30","title":"Minimum Wage","rp":"","area":"Economics of Industrial Relations","reading":"ILO Global Wage Report","confirmed":false},{"type":"session","n":115,"date":"2027-04-29","time":"16:00 to 17:30","title":"Closing session Phase 1 & Thesis outline presentation","rp":"","area":"Programme Milestone","reading":"","confirmed":false},{"type":"exam","title":"EXAM 5","note":"Covers Macro-areas 5+6: Economics of IR and the comparative Variety strand"}]</script>
+<script>
+(function(){
+"use strict";
+var AGENDA=JSON.parse(document.getElementById('agenda-data').textContent);
+var STUDENTS=[];
+
+/* ================= constants ================= */
+var AREA_COLOUR={
+ 'Fundamentals of Industrial Relations':'var(--a-fun)',
+ 'The Regulatory Framework':'var(--a-reg)',
+ 'Forms of Industrial Relations':'var(--a-for)',
+ 'Labour Dispute Prevention and Resolution':'var(--a-dis)',
+ 'Economics of Industrial Relations':'var(--a-eco)',
+ 'Variety of Industrial Relations':'var(--a-var)',
+ 'Drivers of Industrial Relations':'var(--a-dri)',
+ 'Thesis and Research Methodology':'var(--a-the)',
+ 'Programme Milestone':'var(--a-mil)'
+};
+var AREA_HEX={
+ 'Fundamentals of Industrial Relations':'#284B96','The Regulatory Framework':'#0B6E99',
+ 'Forms of Industrial Relations':'#00706A','Labour Dispute Prevention and Resolution':'#A3450B',
+ 'Economics of Industrial Relations':'#5E35A8','Variety of Industrial Relations':'#146B33',
+ 'Drivers of Industrial Relations':'#9C1440','Thesis and Research Methodology':'#5B5B5B',
+ 'Programme Milestone':'#2B2A29'
+};
+var AREA_TINY={
+ 'Fundamentals of Industrial Relations':'Fundamentals','The Regulatory Framework':'Regulation',
+ 'Forms of Industrial Relations':'Forms','Labour Dispute Prevention and Resolution':'Disputes',
+ 'Economics of Industrial Relations':'Economics','Variety of Industrial Relations':'Variety',
+ 'Drivers of Industrial Relations':'Drivers','Thesis and Research Methodology':'Thesis',
+ 'Programme Milestone':'Milestone'
+};
+var AREA_SHORT={
+ 'Fundamentals of Industrial Relations':'Fundamentals','The Regulatory Framework':'Regulatory framework',
+ 'Forms of Industrial Relations':'Forms of IR','Labour Dispute Prevention and Resolution':'Disputes',
+ 'Economics of Industrial Relations':'Economics','Variety of Industrial Relations':'Variety',
+ 'Drivers of Industrial Relations':'Drivers','Thesis and Research Methodology':'Thesis',
+ 'Programme Milestone':'Milestone'
+};
+var REGION_HEX={'Africa':'#146B33','Americas':'#9C1440','Europe and Central Asia':'#284B96','Asia and the Pacific':'#A3450B'};
+var COUNTRY_LATLON={
+ 'Botswana':[-22.3,24.7],'Brazil':[-10.8,-52.9],'Colombia':[4.1,-72.9],'Croatia':[45.1,15.2],
+ 'Fiji':[-17.7,178.0],'Lesotho':[-29.6,28.2],'Namibia':[-22.1,17.2],'Philippines':[12.9,121.8],
+ 'Portugal':[39.6,-8.0],'Slovenia':[46.1,14.8],'South Africa':[-28.5,24.7],'Switzerland':[46.8,8.2],
+ 'Türkiye':[39.1,35.4]
+};
+var OUTLINE_DATE='2027-04-29', SUBMIT_DATE='2027-07-02';
+
+/* the agenda spells one resource person two ways; they are one person */
+var RP_ALIASES={'Darrin G. Dookie':'Darrin Dookie'};
+function rpName(n){return RP_ALIASES[n]||n;}
+
+/* Every live session uses the same Zoom room. The link carries the passcode,
+   which is one more reason this repository stays private. */
+var ZOOM_URL='';
+var ZOOM_ID='';
+
+/* Google Maps JavaScript API key for the cohort map.
+   Restrict it in the Google Cloud console to the Maps JavaScript API and to
+   the website that serves this dashboard. A page opened from disk sends no
+   referrer, so a restricted key will not load locally; the drawn map takes
+   over, which is the intended behaviour. Clear this string to disable the
+   live map entirely. */
+var GOOGLE_MAPS_API_KEY='';
+
+var AREAS=[
+ {n:1,name:"Fundamentals of Industrial Relations",slug:"fundamentals",d:"Students will be introduced to the basics of industrial relations such as scope and definitions, actors involved and regimes of industrial relations. They will get exposed to the history of industrial relations and will better understand the actors of industrial relations. Students will acquire the necessary knowledge to use statistics and data around industrial relations and will develop an understanding of the role of industrial relations institutions in the labour market."},
+ {n:2,name:"The Regulatory Framework",slug:"regulatory",d:"Within this area of study students will be able to enrich their knowledge of the different regulations around industrial relations. Students will be fully exposed to the international labour standards system and will reflect upon the role of labour law in shaping employment and industrial relations. Private and social initiatives and their impact on development of industrial relations will be thoroughly explored."},
+ {n:3,name:"Forms of Industrial Relations",slug:"forms",d:"Collective bargaining, workplace cooperation, international framework agreements are, among others, different forms of industrial relations. Under this macro area, students will gain in-depth studies of the different modalities under which interactions between workers and employers' organizations can take place at different levels."},
+ {n:4,name:"Labour Dispute Prevention and Resolution",slug:"disputes",d:"Students will get exposed to the principles underpinning dispute resolution and will look at labour conflict from different angles including psychological and organizational. Students will get an increased understanding of the role of alternative dispute resolution mechanisms and other dispute resolution methods including adjudication and arbitration."},
+ {n:5,name:"Economics of Industrial Relations",slug:"economics",d:"Understanding economics to discuss while negotiating a collective bargaining or to set a minimum wage is of a paramount importance. In this area of study students will be introduced to the rules of the labour market and its institutions and the relationship between economics and industrial relations."},
+ {n:6,name:"Variety of Industrial Relations",slug:"variety",d:"Industrial relations vary from countries to countries. During the programme students will travel around the globe to gain knowledge on the different types of industrial relations systems and their peculiarities, from developed economies, emerging economies and developing economies."},
+ {n:7,name:"Drivers of Industrial Relations",slug:"drivers",d:"Students will study a variety of drivers of industrial and employment relations development, such as global supply chains, trade agreements and regional integration. Students will also be exposed to the impact of technological change on industrial and employment relations and many others."}
+];
+var TOOLS=[
+ {t:"Introduction to International Labour Standards",u:"https://ecampus.itcilo.org/mod/url/view.php?id=474634"},
+ {t:"Social Dialogue and Industrial Relations",u:"https://ecampus.itcilo.org/mod/url/view.php?id=474637"},
+ {t:"Industrial Relations Toolkit",u:"https://ecampus.itcilo.org/mod/url/view.php?id=474640"},
+ {t:"The 2030 Agenda, Decent Work and Social Dialogue",u:"https://ecampus.itcilo.org/mod/url/view.php?id=474643"},
+ {t:"Business and Decent Work",u:"https://ecampus.itcilo.org/mod/url/view.php?id=474646"},
+ {t:"Responsible Business: Meeting Labour Standards in Global Supply Chains",u:"https://ecampus.itcilo.org/mod/url/view.php?id=474649"},
+ {t:"Introduction to Conciliation/Mediation of Labour Disputes",u:"https://ecampus.itcilo.org/mod/url/view.php?id=474652"}
+];
+var CRITERIA=[
+ {n:1,t:"Structure",d:"A clear overall architecture. The introduction explains the research journey, chapters are logically connected and each has a clear function, the literature or research framework supports the analysis, methodology and findings connect to the research question, and the conclusion follows logically from the preceding chapters."},
+ {n:2,t:"Content",d:"Clarity of the research problem and of the research questions, relevance of the topic, engagement with existing knowledge, quality and relevance of the literature, theoretical or conceptual grounding where appropriate, scope, credibility of sources, a clear distinction between your contribution and existing literature, and adequate referencing."},
+ {n:3,t:"Analysis",d:"One of the most important criteria. It distinguishes description from analysis: developing an argument, engaging critically with the literature, testing the research question, connecting evidence to concepts, separating evidence from opinion, recognising limitations, avoiding unsupported causal claims and drawing conclusions that actually follow from the evidence."},
+ {n:4,t:"Empirical Data",d:"The evidence must be relevant, sufficient, credible, appropriately collected and analysed, clearly presented and connected to the research question. The appropriate evidence follows from your methodology: a legal or doctrinal thesis is not penalised for lacking quantitative statistics, and decorative charts are not rewarded."},
+ {n:5,t:"Conclusion",d:"A direct test: read the research question, then read the conclusion, and ask whether the conclusion actually answers it. All major research questions answered, findings synthesised rather than repeated, conclusions following from the evidence, recommendations following from findings, limitations acknowledged, no new unsupported claims."},
+ {n:6,t:"Presentation",d:"Formatting, readability, chapter and heading consistency, tables and figures, grammar, spelling, academic language, referencing, bibliography, citation consistency and compliance with the thesis template. Presentation matters but does not compensate for weak intellectual content."},
+ {n:7,t:"Originality, relevance and requirements",d:"Relevance to industrial and employment relations, and originality. Originality does not mean nobody has researched the subject: it can be original empirical evidence, original comparative analysis, applying existing theory to a new case, an original interpretation, new institutional or policy analysis, new recommendations, a novel research question, or bringing an under-researched case into the literature. Requirements cover the approved topic and outline, word count, page length, template, submission requirements and references."}
+];
+
+/* ================= helpers ================= */
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+var ZOOM_ICON='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 10l5-3v10l-5-3z"/><rect x="2" y="6" width="13" height="12" rx="2.5"/></svg>';
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var MSHORT=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var DOW=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function parseD(s){var p=s.split('-');return new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));}
+function fmtDay(s){var d=parseD(s);return d.getUTCDate()+' '+MONTHS[d.getUTCMonth()]+' '+d.getUTCFullYear();}
+function fmtShort(s){var d=parseD(s);return d.getUTCDate()+' '+MSHORT[d.getUTCMonth()];}
+function dow(s){return DOW[parseD(s).getUTCDay()];}
+function monthKey(s){return s.slice(0,7);}
+function monthLabel(s){var d=parseD(s+'-01');return MONTHS[d.getUTCMonth()]+' '+d.getUTCFullYear();}
+function todayISO(){var n=new Date();return n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');}
+function daysBetween(a,b){return Math.round((parseD(b)-parseD(a))/86400000);}
+function ac(area){return AREA_COLOUR[area]||'var(--itc-blue)';}
+
+/* localStorage, always optional */
+var LS={
+ get:function(k,f){try{var v=localStorage.getItem('mier.'+k);return v==null?f:JSON.parse(v);}catch(e){return f;}},
+ set:function(k,v){try{localStorage.setItem('mier.'+k,JSON.stringify(v));return true;}catch(e){return false;}},
+ del:function(k){try{localStorage.removeItem('mier.'+k);}catch(e){}}
+};
+
+var sessions=AGENDA.filter(function(x){return x.type==='session';});
+/* Confirmed means the Confirmed column of the agenda workbook is green.
+   Only a confirmed session publishes the name of its resource person, carries
+   the Zoom link and enters the calendar export. */
+var confirmed=sessions.filter(function(s){return s.confirmed;});
+var confirmedDays={};
+confirmed.forEach(function(s){confirmedDays[s.date]=1;});
+var TODAY=todayISO();
+
+/* ================= tabs ================= */
+var TABS=['home','programme','resources','thesis'];
+function show(name,push){
+  if(TABS.indexOf(name)<0)name='home';
+  TABS.forEach(function(t){
+    var b=document.getElementById('tab-'+t),p=document.getElementById('panel-'+t);
+    var on=(t===name);
+    b.setAttribute('aria-selected',on?'true':'false');
+    p.classList.toggle('active',on);
+  });
+  if(push)history.replaceState(null,'','#'+name);
+  window.scrollTo({top:0,behavior:'auto'});
+}
+TABS.forEach(function(t){document.getElementById('tab-'+t).addEventListener('click',function(){show(t,true);});});
+document.querySelector('.tablist').addEventListener('keydown',function(e){
+  var i=TABS.indexOf((location.hash||'#home').replace('#',''));if(i<0)i=0;
+  var j=null;
+  if(e.key==='ArrowRight')j=(i+1)%TABS.length;
+  if(e.key==='ArrowLeft')j=(i-1+TABS.length)%TABS.length;
+  if(j!==null){e.preventDefault();show(TABS[j],true);document.getElementById('tab-'+TABS[j]).focus();}
+});
+window.addEventListener('hashchange',function(){show(location.hash.replace('#',''),false);});
+document.addEventListener('click',function(e){
+  var a=e.target.closest('[data-goto]'); if(!a)return;
+  e.preventDefault(); show(a.getAttribute('data-goto'),true);
+  var sub=a.getAttribute('data-sub');
+  if(sub==='faculty')switchProgSub('faculty');
+});
+
+/* ================= sub-tabs ================= */
+function pairSub(aId,bId,pa,pb){
+  var a=document.getElementById(aId),b=document.getElementById(bId);
+  function sw(first){
+    a.setAttribute('aria-selected',first?'true':'false');
+    b.setAttribute('aria-selected',first?'false':'true');
+    document.getElementById(pa).hidden=!first;
+    document.getElementById(pb).hidden=first;
+  }
+  a.addEventListener('click',function(){sw(true);});
+  b.addEventListener('click',function(){sw(false);});
+  return sw;
+}
+var switchProg=pairSub('sub-agenda','sub-faculty','sp-agenda','sp-faculty');
+function switchProgSub(which){switchProg(which!=='faculty');}
+
+/* ================= static lists ================= */
+var AREA_ALT={
+ 'fundamentals':'Delegates seated in the ILO conference hall beneath rows of flags.',
+ 'regulatory':'A court building with columns and the scales of justice in its pediment.',
+ 'forms':'Two delegations facing each other across a long table, national flags behind them.',
+ 'disputes':'A conciliator standing with arms outstretched between two groups in dispute.',
+ 'economics':'A round conference table in front of a screen showing pie, bar and line charts.',
+ 'variety':'Several different workplaces side by side on the floors of one building.',
+ 'drivers':'A delivery cyclist, a scooter courier and a cleaner outside an office building.'
+};
+document.getElementById('areaCards').innerHTML=AREAS.map(function(a){
+  var n=sessions.filter(function(s){return s.area===a.name;}).length;
+  return '<button class="areacard" type="button" data-area-filter="'+esc(a.name)+'" style="--ac:'+AREA_HEX[a.name]+'">'+
+    '<img src="assets/areas/'+a.slug+'.jpg" alt="'+esc(AREA_ALT[a.slug])+'" loading="lazy" width="960" height="600">'+
+    '<span class="ac-body">'+
+      '<span class="ac-num">0'+a.n+'</span>'+
+      '<span class="ac-name">'+esc(a.name)+'</span>'+
+      '<span class="ac-d">'+esc(a.d)+'</span>'+
+      '<span class="ac-n">'+n+' session'+(n===1?'':'s')+' · filter the agenda →</span>'+
+    '</span></button>';
+}).join('');
+document.getElementById('areaCards').addEventListener('click',function(e){
+  var b=e.target.closest('[data-area-filter]'); if(!b)return;
+  var a=b.getAttribute('data-area-filter');
+  switchProgSub('agenda');
+  qEl.value='';msel.value='';activeAreas={};activeAreas[a]=1;
+  document.querySelectorAll('#chips .chip').forEach(function(c){
+    c.setAttribute('aria-pressed',c.getAttribute('data-area')===a?'true':'false');
+  });
+  render();
+  document.getElementById('sp-agenda').scrollIntoView({block:'start'});
+});
+
+document.getElementById('toolList').innerHTML=TOOLS.map(function(t,i){
+  return '<a class="tool" href="'+t.u+'" target="_blank" rel="noopener"><span class="ico">0'+(i+1)+'</span><span><h3>'+esc(t.t)+'</h3><p>Open on the ITCILO eCampus →</p></span></a>';
+}).join('');
+document.getElementById('critList').innerHTML=CRITERIA.map(function(c){
+  return '<div class="crit"><div class="n">'+c.n+'</div><h3>'+esc(c.t)+'</h3><p>'+esc(c.d)+'</p></div>';
+}).join('');
+
+/* ================= stats ================= */
+var people={},months=[],days={};
+sessions.forEach(function(s){
+  if(s.rp)people[rpName(s.rp)]=1;
+  var m=monthKey(s.date); if(months.indexOf(m)<0)months.push(m);
+  days[s.date]=1;
+});
+months.sort();
+document.getElementById('stHome1').textContent=sessions.length;
+document.getElementById('stP1').textContent=sessions.length;
+document.getElementById('stP2').textContent=Object.keys(days).length;
+document.getElementById('stP3').textContent=Object.keys(people).length;
+
+/* Participants join the live sessions from the ITCILO eCampus. The Zoom room
+   is not published on this page. */
+document.getElementById('joinBar').innerHTML=
+  '<div class="joincard"><div class="jc-txt">'+
+    '<div class="jc-eyebrow">Live sessions</div>'+
+    '<h3>Sessions run live, twice a session day</h3>'+
+    '<p>Phase 1 is delivered online, normally on Mondays and Thursdays, 14:00 to 15:30 and 16:00 to 17:30 Turin time. '+
+    'Check the agenda for the days that differ. Enrolled participants join from the ITCILO eCampus.</p>'+
+  '</div></div>';
+
+/* ================= spine ================= */
+var SEGMENTS=(function(){
+  var segs=[],cur=[],exams=[];
+  AGENDA.forEach(function(it){
+    if(it.type==='session'){cur.push(it);return;}
+    if(it.type==='exam'){
+      if(cur.length){segs.push({sessions:cur,exam:it.title});cur=[];}
+      return;
+    }
+  });
+  if(cur.length)segs.push({sessions:cur,exam:null});
+  segs.forEach(function(sg){
+    var counts={};
+    sg.sessions.forEach(function(s){
+      if(s.area==='Programme Milestone'||s.area==='Thesis and Research Methodology')return;
+      counts[s.area]=(counts[s.area]||0)+1;
+    });
+    var ranked=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];});
+    // a block is named after every area holding at least a quarter of its sessions
+    sg.areas=ranked.filter(function(a){return counts[a]>=sg.sessions.length*0.25;});
+    if(!sg.areas.length)sg.areas=[ranked[0]||sg.sessions[0].area];
+    sg.area=sg.areas[0];
+    sg.start=sg.sessions[0].date;
+    sg.end=sg.sessions[sg.sessions.length-1].date;
+  });
+  return segs;
+})();
+
+function drawSpine(){
+  var first=sessions[0].date, last=sessions[sessions.length-1].date;
+  var span=daysBetween(first,last)||1;
+  var host=document.getElementById('spine');
+  var segHTML=SEGMENTS.map(function(sg,i){
+    var w=(daysBetween(sg.start,sg.end)+3)/span*100;
+    var label=sg.areas.map(function(a){return AREA_TINY[a];}).join(' + ');
+    var bg=sg.areas.length>1
+      ? 'linear-gradient(100deg,'+sg.areas.map(function(a,k){
+          return AREA_HEX[a]+' '+Math.round(k/sg.areas.length*100+8)+'%';}).join(',')+')'
+      : AREA_HEX[sg.area];
+    return '<button class="seg" type="button" style="flex:0 0 '+w.toFixed(2)+'%;background:'+bg+'"'+
+      ' data-seg="'+i+'" title="'+esc(label)+', '+fmtShort(sg.start)+' to '+fmtShort(sg.end)+', '+sg.sessions.length+' sessions'+(sg.exam?', followed by '+sg.exam:'')+'">'+
+      '<span>'+esc(label)+'</span>'+
+      (sg.exam?'<i class="exam" style="right:0;left:auto" aria-hidden="true"></i>':'')+
+      '</button>';
+  }).join('');
+  var todayMark='';
+  if(TODAY>=first&&TODAY<=last){
+    todayMark='<div class="today" style="left:'+(daysBetween(first,TODAY)/span*100).toFixed(2)+'%" title="Today"></div>';
+  }
+  var legend=[];
+  SEGMENTS.forEach(function(sg){sg.areas.forEach(function(a){if(legend.indexOf(a)<0)legend.push(a);});});
+  areaNames.forEach(function(a){if(legend.indexOf(a)<0&&a!=='Programme Milestone')legend.push(a);});
+  host.innerHTML=
+    '<h3 style="margin:0 0 .2rem">The year at a glance</h3>'+
+    '<p style="font-size:.82rem;color:var(--itc-grey-80);margin:0 0 .3rem">'+SEGMENTS.length+' teaching blocks, each closed by an examination. Select a block to filter the agenda below.</p>'+
+    '<div class="track">'+segHTML+todayMark+'</div>'+
+    '<div class="axis"><span>'+fmtShort(first)+' 2026</span><span>'+fmtShort(last)+' 2027</span></div>'+
+    '<div class="spinelegend">'+legend.map(function(a){
+      return '<span><i style="background:'+AREA_HEX[a]+'"></i>'+esc(AREA_SHORT[a])+'</span>';
+    }).join('')+'<span><i style="background:#7A1F2B;border-radius:2px"></i>Examination</span></div>'+
+    '<p style="font-size:.76rem;color:var(--itc-grey-80);margin:.7rem 0 0">Variety of Industrial Relations sessions are anchored across the blocks rather than taught as one continuous block, and the thesis methodology sessions are spread across the year.</p>';
+  fitSpineLabels();
+  host.querySelectorAll('.seg').forEach(function(b){
+    b.addEventListener('click',function(){
+      var sg=SEGMENTS[+this.getAttribute('data-seg')];
+      switchProgSub('agenda');
+      qEl.value='';msel.value='';activeAreas={};
+      sg.areas.forEach(function(a){activeAreas[a]=1;});
+      document.querySelectorAll('#chips .chip').forEach(function(c){
+        c.setAttribute('aria-pressed',activeAreas[c.getAttribute('data-area')]?'true':'false');
+      });
+      render();
+      document.getElementById('sp-agenda').scrollIntoView({block:'start'});
+    });
+  });
+}
+
+function fitSpineLabels(){
+  document.querySelectorAll('.spine .seg').forEach(function(b){
+    b.classList.remove('tight');
+    var sp=b.querySelector('span'); if(!sp)return;
+    if(sp.scrollWidth>b.clientWidth-6)b.classList.add('tight');
+  });
+}
+var spineTimer=null;
+window.addEventListener('resize',function(){
+  clearTimeout(spineTimer);
+  spineTimer=setTimeout(fitSpineLabels,150);
+});
+
+/* ================= now panel ================= */
+function drawNow(){
+  var first=sessions[0].date,last=sessions[sessions.length-1].date;
+  var next=null;
+  for(var i=0;i<sessions.length;i++){if(sessions[i].date>=TODAY){next=sessions[i];break;}}
+  var doneCount=sessions.filter(function(s){return s.date<TODAY;}).length;
+  var nextExam=null;
+  for(var j=0;j<SEGMENTS.length;j++){
+    if(SEGMENTS[j].exam&&SEGMENTS[j].end>=TODAY){nextExam=SEGMENTS[j];break;}
+  }
+  var block=null;
+  for(var k=0;k<SEGMENTS.length;k++){
+    if(TODAY>=SEGMENTS[k].start&&TODAY<=SEGMENTS[k].end){block=SEGMENTS[k];break;}
+  }
+  if(!block&&next){for(var m=0;m<SEGMENTS.length;m++){if(SEGMENTS[m].sessions.indexOf(next)>=0){block=SEGMENTS[m];break;}}}
+
+  var card;
+  if(TODAY<first){
+    var d=daysBetween(TODAY,first);
+    card='<div class="nextcard" style="--ac:'+AREA_HEX[sessions[0].area]+'"><div class="in">'+
+      '<div class="when">The programme opens in '+d+' day'+(d===1?'':'s')+'</div>'+
+      '<h3>'+esc(sessions[0].title)+'</h3>'+
+      '<div class="rp">'+fmtDay(sessions[0].date)+' · '+esc(sessions[0].time)+' Turin time'+(sessions[0].rp?' · Resource person: <b>'+esc(sessions[0].rp)+'</b>':' · Resource person to be confirmed')+'</div>'+
+      '<div class="countdown">'+
+        '<div class="cd"><div class="n">'+d+'</div><div class="l">Days to the opening</div></div>'+
+        '<div class="cd"><div class="n">'+sessions.length+'</div><div class="l">Sessions ahead</div></div>'+
+        '<div class="cd"><div class="n">'+daysBetween(TODAY,SUBMIT_DATE)+'</div><div class="l">Days to submission</div></div>'+
+      '</div>'+
+      (ZOOM_URL&&sessions[0].confirmed?'<a class="btn join" href="'+ZOOM_URL+'" target="_blank" rel="noopener" style="margin-top:1rem">'+ZOOM_ICON+'Join the Zoom session</a>':'')+
+      '</div></div>';
+  } else if(next){
+    var dn=daysBetween(TODAY,next.date);
+    var whenTxt=dn===0?'Today':(dn===1?'Tomorrow':'In '+dn+' days');
+    card='<div class="nextcard" style="--ac:'+AREA_HEX[next.area]+'"><div class="in">'+
+      '<div class="when">Next session · '+whenTxt+'</div>'+
+      '<h3>'+esc(next.title)+'</h3>'+
+      '<div class="rp">'+fmtDay(next.date)+' · '+esc(next.time)+' Turin time'+(next.rp?' · Resource person: <b>'+esc(next.rp)+'</b>':' · Resource person to be confirmed')+'</div>'+
+      (next.reading?'<div class="read">Mandatory reading: '+esc(next.reading)+'</div>':'')+
+      '<div class="pills" style="margin-top:.7rem"><span class="tag area" style="--ac:'+AREA_HEX[next.area]+'">'+esc(next.area)+'</span>'+
+        (next.confirmed?'':'<span class="tag tbc">To be confirmed</span>')+'</div>'+
+      (ZOOM_URL&&next.confirmed?'<a class="btn join" href="'+ZOOM_URL+'" target="_blank" rel="noopener" style="margin-top:1rem">'+ZOOM_ICON+'Join the Zoom session</a>':'')+
+      '<div class="countdown">'+
+        '<div class="cd"><div class="n">'+doneCount+'</div><div class="l">Sessions delivered</div></div>'+
+        '<div class="cd"><div class="n">'+(sessions.length-doneCount)+'</div><div class="l">Sessions remaining</div></div>'+
+        '<div class="cd"><div class="n">'+Math.max(0,daysBetween(TODAY,OUTLINE_DATE))+'</div><div class="l">Days to the outline</div></div>'+
+      '</div></div></div>';
+  } else {
+    card='<div class="nextcard"><div class="in">'+
+      '<div class="when">Phase 1 is complete</div>'+
+      '<h3>Thesis phase</h3>'+
+      '<div class="rp">All '+sessions.length+' live sessions have been delivered. The thesis is to be completed by 2 July 2027.</div>'+
+      '<div class="countdown"><div class="cd"><div class="n">'+Math.max(0,daysBetween(TODAY,SUBMIT_DATE))+'</div><div class="l">Days to submission</div></div></div>'+
+      '</div></div>';
+  }
+
+  var ms=[];
+  if(block){
+    var blockLabel=block.areas.map(function(a){return AREA_SHORT[a];}).join(' + ');
+    ms.push({c:AREA_HEX[block.area],t:(TODAY<first?'First block':'Current block'),s:blockLabel+' · '+fmtShort(block.start)+' to '+fmtShort(block.end),d:block.sessions.length+' sessions'});
+  }
+  if(nextExam){
+    ms.push({c:'#7A1F2B',t:nextExam.exam,s:'Closes the '+AREA_SHORT[nextExam.area]+' block',d:'after '+fmtShort(nextExam.end)});
+  }
+  ms.push({c:'#9C1440',t:'Thesis outline presented',s:'29 April 2027, closing session of Phase 1',d:Math.max(0,daysBetween(TODAY,OUTLINE_DATE))+' days'});
+  ms.push({c:'#9C1440',t:'Thesis submitted',s:'2 July 2027',d:Math.max(0,daysBetween(TODAY,SUBMIT_DATE))+' days'});
+
+  document.getElementById('nowGrid').innerHTML=card+
+    '<div class="milestones">'+ms.map(function(m){
+      return '<div class="ms" style="--ac:'+m.c+'"><span class="dot"></span><span class="txt"><b>'+esc(m.t)+'</b><span>'+esc(m.s)+'</span></span><span class="days">'+esc(m.d)+'</span></div>';
+    }).join('')+'</div>';
+}
+
+/* ================= thesis countdown ================= */
+(function(){
+  var out=[
+    {n:'15,000',l:'Words minimum'},
+    {n:'40–60',l:'Pages'},
+    {n:'7',l:'Assessment criteria'},
+    {n:Math.max(0,daysBetween(TODAY,SUBMIT_DATE)),l:'Days to submission'}
+  ];
+  document.getElementById('thesisCountdown').innerHTML=out.map(function(o){
+    return '<div class="stat"><div class="n">'+o.n+'</div><div class="l">'+o.l+'</div></div>';
+  }).join('');
+})();
+
+/* ================= agenda ================= */
+var attended=LS.get('attended',{});
+function sid(s){return s.date+'|'+s.time+'|'+(s.n||s.title);}
+function saveAttended(){LS.set('attended',attended);updateAtt();}
+function updateAtt(){
+  var n=Object.keys(attended).filter(function(k){return attended[k];}).length;
+  document.getElementById('attBar').style.width=(n/sessions.length*100)+'%';
+  document.getElementById('attTxt').textContent='You have marked '+n+' of '+sessions.length+' sessions. Marks are saved in this browser only.';
+}
+
+var areaNames=[];
+sessions.forEach(function(s){if(s.area&&areaNames.indexOf(s.area)<0)areaNames.push(s.area);});
+areaNames.sort();
+var activeAreas={};
+document.getElementById('chips').innerHTML=areaNames.map(function(a){
+  return '<button class="chip" type="button" data-area="'+esc(a)+'" aria-pressed="false" style="--ac:'+AREA_HEX[a]+'"><span class="dot"></span>'+esc(a)+'</button>';
+}).join('');
+document.getElementById('chips').addEventListener('click',function(e){
+  var b=e.target.closest('.chip'); if(!b)return;
+  var a=b.getAttribute('data-area');
+  if(activeAreas[a]){delete activeAreas[a];b.setAttribute('aria-pressed','false');}
+  else{activeAreas[a]=1;b.setAttribute('aria-pressed','true');}
+  render();
+});
+
+var qEl=document.getElementById('q'),msel=document.getElementById('monthSel'),hideDone=document.getElementById('hideDone'),onlyConf=document.getElementById('onlyConf');
+months.forEach(function(m){var o=document.createElement('option');o.value=m;o.textContent=monthLabel(m);msel.appendChild(o);});
+qEl.addEventListener('input',render);
+msel.addEventListener('change',render);
+hideDone.addEventListener('click',function(){
+  var on=this.getAttribute('aria-pressed')!=='true';
+  this.setAttribute('aria-pressed',on?'true':'false');render();
+});
+onlyConf.addEventListener('click',function(){
+  var on=this.getAttribute('aria-pressed')!=='true';
+  this.setAttribute('aria-pressed',on?'true':'false');render();
+});
+document.getElementById('resetBtn').addEventListener('click',function(){
+  qEl.value='';msel.value='';activeAreas={};
+  hideDone.setAttribute('aria-pressed','false');
+  onlyConf.setAttribute('aria-pressed','false');
+  document.querySelectorAll('#chips .chip').forEach(function(c){c.setAttribute('aria-pressed','false');});
+  render();
+});
+document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+
+function matches(s){
+  var q=qEl.value.trim().toLowerCase(),m=msel.value,keys=Object.keys(activeAreas);
+  if(keys.length&&keys.indexOf(s.area)<0)return false;
+  if(m&&monthKey(s.date)!==m)return false;
+  if(hideDone.getAttribute('aria-pressed')==='true'&&attended[sid(s)])return false;
+  if(onlyConf.getAttribute('aria-pressed')==='true'&&!s.confirmed)return false;
+  if(q){
+    var hay=(s.title+' '+s.rp+' '+s.area+' '+(s.reading||'')+' '+fmtDay(s.date)).toLowerCase();
+    if(hay.indexOf(q)<0)return false;
+  }
+  return true;
+}
+function render(){
+  var filtering=(qEl.value.trim()!=='')||msel.value!==''||Object.keys(activeAreas).length>0||hideDone.getAttribute('aria-pressed')==='true'||onlyConf.getAttribute('aria-pressed')==='true';
+  var out=[],shown=0,group=null,html='';
+  function flush(){if(html){out.push(html+'</div>');html='';}}
+  AGENDA.forEach(function(it){
+    if(it.type==='exam'){
+      if(filtering)return; flush();
+      out.push('<div class="marker exam"><h3>'+esc(it.title)+'</h3><p>'+esc(it.note||'')+'</p></div>');return;
+    }
+    if(it.type==='break'){
+      if(filtering)return; flush();
+      out.push('<div class="marker brk">'+esc(it.title)+'</div>');return;
+    }
+    if(!matches(it))return;
+    shown++;
+    if(group!==it.date){flush();group=it.date;
+      html='<div class="daygroup"><div class="dayhead"><span class="dow">'+dow(it.date)+'</span><span class="dt">'+fmtDay(it.date)+'</span>'+
+        (ZOOM_URL&&it.date===TODAY&&confirmedDays[it.date]
+          ? '<a class="daylink live" href="'+ZOOM_URL+'" target="_blank" rel="noopener">'+ZOOM_ICON+'Join today</a>'
+          : '')+
+        '<span class="wk">Turin time</span></div>';
+    }
+    var t=it.time.split(' to '),id=sid(it),done=!!attended[id];
+    html+='<div class="sess'+(done?' done':'')+'" style="--ac:'+AREA_HEX[it.area]+'">'+
+      '<div class="rail">'+esc(t[0]||it.time)+(t[1]?'<span class="to">to '+esc(t[1])+'</span>':'')+'</div>'+
+      '<div class="sbody"><span class="tag area" style="--ac:'+AREA_HEX[it.area]+'">'+esc(it.area)+'</span>'+
+      (it.confirmed?'':' <span class="tag tbc">To be confirmed</span>')+
+      '<h4>'+esc(it.title)+'</h4>'+
+      (it.rp
+        ? '<div class="rp">Resource person: <b>'+esc(it.rp)+'</b></div>'
+        : '<div class="rp">Resource person to be confirmed</div>')+
+      (it.reading?'<div class="read">Mandatory reading: '+esc(it.reading)+'</div>':'')+
+      (ZOOM_URL&&it.confirmed
+        ? '<a class="seslink" href="'+ZOOM_URL+'" target="_blank" rel="noopener">'+ZOOM_ICON+(it.date===TODAY?'Join today':'Join on Zoom')+'</a>'
+        : '')+
+      '</div>'+
+      '<button class="mark" type="button" data-id="'+esc(id)+'" aria-pressed="'+(done?'true':'false')+'" title="Mark this session" aria-label="Mark '+esc(it.title)+' as done">✓</button>'+
+      '</div>';
+  });
+  flush();
+  var host=document.getElementById('agenda');
+  host.innerHTML=out.length?out.join(''):'<div class="empty"><strong>No sessions match your filters.</strong><br>Try a different search term or reset the filters.</div>';
+  document.getElementById('count').innerHTML='Showing <b>'+shown+'</b> of <b>'+sessions.length+'</b> sessions · <b>'+confirmed.length+'</b> confirmed, <b>'+(sessions.length-confirmed.length)+'</b> still to be confirmed'+(filtering?' · examinations and breaks are hidden while filtering':'');
+}
+document.getElementById('agenda').addEventListener('click',function(e){
+  var b=e.target.closest('.mark'); if(!b)return;
+  var id=b.getAttribute('data-id'),on=b.getAttribute('aria-pressed')!=='true';
+  if(on)attended[id]=1; else delete attended[id];
+  b.setAttribute('aria-pressed',on?'true':'false');
+  b.closest('.sess').classList.toggle('done',on);
+  saveAttended();
+  if(hideDone.getAttribute('aria-pressed')==='true')render();
+});
+
+/* ================= faculty ================= */
+var FACULTY=(function(){
+  var m={};
+  sessions.forEach(function(s){
+    if(!s.rp)return;
+    var n=rpName(s.rp);
+    if(!m[n])m[n]={name:n,items:[],areas:{}};
+    m[n].items.push(s); m[n].areas[s.area]=1;
+  });
+  return Object.keys(m).map(function(k){
+    var f=m[k];
+    f.items.sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0);});
+    f.first=f.items[0].date;
+    return f;
+  }).sort(function(a,b){
+    return a.first<b.first?-1:(a.first>b.first?1:a.name.localeCompare(b.name,'en',{sensitivity:'base'}));
+  });
+})();
+var fq=document.getElementById('fq');
+function renderFaculty(){
+  var q=fq.value.trim().toLowerCase();
+  var list=FACULTY.filter(function(f){
+    if(!q)return true;
+    var hay=(f.name+' '+f.items.map(function(s){return s.title;}).join(' ')+' '+Object.keys(f.areas).join(' ')).toLowerCase();
+    return hay.indexOf(q)>=0;
+  });
+  document.getElementById('faculty').innerHTML=list.map(function(f){
+    var titles={},order=[];
+    f.items.forEach(function(s){if(!titles[s.title]){titles[s.title]=[];order.push(s.title);}titles[s.title].push(s.date);});
+    var primary=Object.keys(f.areas)[0];
+    return '<article class="fac" style="--ac:'+AREA_HEX[primary]+'">'+
+      '<h3>'+esc(f.name)+'</h3>'+
+      '<div class="n">First session '+fmtShort(f.first)+' · '+f.items.length+' session'+(f.items.length===1?'':'s')+
+        (f.items.length>1?' to '+fmtShort(f.items[f.items.length-1].date):'')+'</div>'+
+      '<div class="pills">'+Object.keys(f.areas).map(function(a){
+        return '<span class="tag area" style="--ac:'+AREA_HEX[a]+'">'+esc(AREA_SHORT[a])+'</span>';}).join('')+'</div>'+
+      '<ul>'+order.map(function(t){
+        return '<li><em>'+esc(fmtShort(titles[t][0]))+'</em><span>'+esc(t)+(titles[t].length>1?' ('+titles[t].length+' sessions)':'')+'</span></li>';
+      }).join('')+'</ul></article>';
+  }).join('')||'<div class="empty" style="grid-column:1/-1"><strong>No resource person matches your search.</strong></div>';
+  document.getElementById('fCount').innerHTML='Showing <b>'+list.length+'</b> of <b>'+FACULTY.length+'</b> confirmed resource persons';
+}
+fq.addEventListener('input',renderFaculty);
+
+/* ================= calendar export ================= */
+function pad(n){return String(n).padStart(2,'0');}
+function icsEscape(s){return String(s).replace(/[\\;,]/g,function(c){return '\\'+c;}).replace(/\n/g,'\\n');}
+function fold(line){
+  var out=[],s=line;
+  while(s.length>73){
+    var cut=73;
+    // never split an escaped pair such as \n or \, across a fold
+    while(cut>1&&s.charAt(cut-1)==='\\')cut--;
+    out.push(s.slice(0,cut));s=' '+s.slice(cut);
+  }
+  out.push(s);return out.join('\r\n');
+}
+function buildICS(list,name){
+  var L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//ITCILO//MIER 2026-2027//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH',
+    'X-WR-CALNAME:'+icsEscape(name),
+    'BEGIN:VTIMEZONE','TZID:Europe/Rome',
+    'BEGIN:DAYLIGHT','TZOFFSETFROM:+0100','TZOFFSETTO:+0200','TZNAME:CEST','DTSTART:19700329T020000','RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU','END:DAYLIGHT',
+    'BEGIN:STANDARD','TZOFFSETFROM:+0200','TZOFFSETTO:+0100','TZNAME:CET','DTSTART:19701025T030000','RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU','END:STANDARD',
+    'END:VTIMEZONE'];
+  var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'');
+  list.forEach(function(s,i){
+    var d=s.date.replace(/-/g,''),t=s.time.split(' to ');
+    if(t.length<2)return;
+    var st=t[0].replace(':','')+'00',en=t[1].replace(':','')+'00';
+    var desc='Macro-competence area: '+s.area+(s.rp?'\\nResource person: '+s.rp:'')+(s.reading?'\\nMandatory reading: '+s.reading:'')+
+      
+      '\\n\\nMaster in Industrial and Employment Relations, ITCILO and University of Turin.';
+    L.push('BEGIN:VEVENT');
+    L.push('UID:mier-'+d+'-'+st+'-'+i+'@itcilo.org');
+    L.push('DTSTAMP:'+stamp);
+    L.push('DTSTART;TZID=Europe/Rome:'+d+'T'+st);
+    L.push('DTEND;TZID=Europe/Rome:'+d+'T'+en);
+    L.push(fold('SUMMARY:'+icsEscape(s.title)));
+    L.push(fold('DESCRIPTION:'+desc));
+    L.push('END:VEVENT');
+  });
+  L.push('END:VCALENDAR');
+  return L.join('\r\n');
+}
+function downloadICS(list,name,file){
+  try{
+    var blob=new Blob([buildICS(list,name)],{type:'text/calendar;charset=utf-8'});
+    var url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download=file;document.body.appendChild(a);a.click();
+    document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url);},2000);
+  }catch(e){
+    alert('This browser blocked the calendar download. Open the dashboard from the published site and try again.');
+  }
+}
+/* Only confirmed sessions are exported. An unconfirmed session has neither a
+   named resource person nor a Zoom link, so it does not belong in a calendar. */
+document.getElementById('icsAll').addEventListener('click',function(){
+  downloadICS(confirmed,'MIER 2026-2027 Phase 1, confirmed sessions','mier-2026-2027-confirmed-sessions.ics');
+});
+
+/* ================= boot ================= */
+drawSpine();drawNow();render();renderFaculty();updateAtt();
+show((location.hash||'#home').replace('#',''),false);
+})();
+</script>
+</body>
+</html>
