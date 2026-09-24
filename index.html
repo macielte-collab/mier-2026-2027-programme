@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MIER 2026–2027 · Participant Dashboard</title>
-<meta name="description" content="Participant dashboard for the Master in Industrial and Employment Relations 2026–2027, ITCILO and University of Turin.">
+<title>Online Master in Industrial and Employment Relations 2026–2027 · Student dashboard</title>
+<meta name="description" content="Student dashboard for the Online Master in Industrial and Employment Relations 2026–2027, ITCILO and University of Turin.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Sans:wdth,wght@62.5,600;62.5,700;87.5,300;87.5,400;87.5,600;87.5,700;100,400&display=swap" rel="stylesheet">
@@ -177,6 +177,9 @@ ul.dash li::before{content:"—";position:absolute;left:0;color:var(--itc-cyan);
 .seslink{display:inline-flex;align-items:center;gap:.35rem;margin-top:.55rem;background:#2D8CFF;color:#fff;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.32rem .8rem;border-radius:999px;text-decoration:none}
 .seslink:hover{background:#1a7ae8;color:#fff;text-decoration:none}
 .seslink svg{width:13px;height:13px;flex:0 0 13px}
+.seslink.cal{background:transparent;color:var(--itc-cyan-dark);border:1.5px solid var(--itc-blue-40);margin-left:.4rem}
+.seslink.cal:hover{background:var(--itc-blue-20);color:var(--itc-blue)}
+.seslink.cal svg{width:13px;height:13px}
 
 /* ---------- spine ---------- */
 .spine{background:#fff;border-radius:var(--radius);box-shadow:var(--sh-2);padding:1.2rem 1.3rem 1rem}
@@ -212,7 +215,25 @@ ul.dash li::before{content:"—";position:absolute;left:0;color:var(--itc-cyan);
 .search input{border:0;outline:0;flex:1;font-family:inherit;font-size:.9rem;background:none;min-width:0}
 select.sel{border:1.5px solid var(--itc-grey-20);border-radius:999px;padding:.55rem .9rem;font-family:inherit;font-size:.85rem;background:#fff;color:var(--itc-black);max-width:100%}
 .chipbar{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.75rem}
-.chip{appearance:none;border:1.5px solid var(--itc-grey-20);background:#fff;color:var(--itc-grey-80);font-family:var(--font-body);font-stretch:87.5%;font-size:.72rem;font-weight:600;padding:.35rem .75rem;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:.15s}
+/* On a phone the toolbar is taller than it is useful: sticky, it left about
+   80px of a 844px screen for the sessions themselves. Below 760px it scrolls
+   away with the page and the area chips become one swipeable row. */
+@media (max-width:760px){
+  .toolbar{position:static;top:auto;padding:.85rem;margin-bottom:1rem}
+  .toolbar .row{gap:.4rem}
+  .chipbar{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:.4rem;margin-top:.6rem}
+  .chipbar::-webkit-scrollbar{height:4px}
+  .chipbar::-webkit-scrollbar-thumb{background:var(--itc-blue-40);border-radius:4px}
+  .chipbar .chip{flex:0 0 auto}
+}
+/* Area names are long. On a narrow card the pill has to wrap rather than run
+   off the edge. */
+@media (max-width:620px){
+  .sbody .tag{white-space:normal;max-width:100%;line-height:1.3;border-radius:12px}
+  .sbody h4{font-size:.95rem}
+}
+.chip{white-space:nowrap;appearance:none;border:1.5px solid var(--itc-grey-20);background:#fff;color:var(--itc-grey-80);font-family:var(--font-body);font-stretch:87.5%;font-size:.72rem;font-weight:600;padding:.35rem .75rem;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:.15s}
 .chip .dot{width:9px;height:9px;border-radius:50%;background:var(--ac,var(--itc-blue));flex:0 0 9px}
 .chip:hover{border-color:var(--ac,var(--itc-cyan));color:var(--itc-blue)}
 .chip[aria-pressed="true"]{background:var(--ac,var(--itc-blue));border-color:var(--ac,var(--itc-blue));color:#fff}
@@ -408,8 +429,8 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
 <header class="masthead">
   <div class="wrap masthead-inner">
     <div>
-      <div class="t1">Master in Industrial and Employment Relations</div>
-      <div class="t2">2026–2027 · Participant dashboard</div>
+      <div class="t1">Online Master in Industrial and Employment Relations</div>
+      <div class="t2">2026–2027 · Student dashboard</div>
     </div>
     <div class="mast-meta">Online · ITCILO eCampus</div>
   </div>
@@ -435,18 +456,17 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
   <div class="hero">
     <div class="hero-panel">
       <div class="pills"><span class="tag">Online</span><span class="tag">Social dialogue</span><span class="tag ghost" style="color:#fff;border-color:rgba(255,255,255,.5)">University of Turin</span></div>
-      <h1>Master in Industrial and Employment Relations</h1>
+      <h1>Online Master in Industrial and Employment Relations</h1>
       <div class="hero-sub">21 September 2026 – 2 July 2027</div>
-      <p style="color:#D5E1F7;max-width:52ch;margin:0">A first level Master's Degree from the University of Turin, delivered online on the ITCILO eCampus with an optional residential phase in Turin.</p>
+      <p style="color:#D5E1F7;max-width:52ch;margin:0">A world class university Master's degree for industrial relations practitioners, delivered jointly by the ITCILO and the University of Turin. Sixty ECTS credits over ten months, online on the ITCILO eCampus, with an optional residential phase in Turin and Geneva.</p>
       <div class="meta">
         <div><span class="k">Mode</span><span class="v">Online · ITCILO eCampus</span></div>
-        <div><span class="k">Face to face</span><span class="v">Turin, 3–14 May 2027 (optional, to be confirmed)</span></div>
+        <div><span class="k">Face to face</span><span class="v">Turin and Geneva, 3 to 14 May 2027 (optional)</span></div>
         <div><span class="k">Language</span><span class="v">English</span></div>
-        <div><span class="k">Application deadline</span><span class="v">30 January 2026 (first intake)</span></div>
-        <div><span class="k">Tuition</span><span class="v">9,900 Euros</span></div>
-        <div><span class="k">Credits</span><span class="v">60 certified university credits</span></div>
+        <div><span class="k">Credits</span><span class="v">60 ECTS credits</span></div>
+        <div><span class="k">Degree</span><span class="v">First level Master's degree, University of Turin</span></div>
+        <div><span class="k">Live sessions</span><span class="v">Mondays and Thursdays, 14:00 to 15:30 and 16:00 to 17:30 Turin time</span></div>
       </div>
-      <a class="cta" href="https://oarf2.itcilo.org/CST/A9718856/en" target="_blank" rel="noopener">Online application form →</a>
     </div>
     <figure class="hero-figure" style="margin:0">
       <img src="assets/hero.jpg" alt="Illustration of a multi storey building in which governments, workers' organizations and employers' organizations meet, negotiate and work together.">
@@ -474,9 +494,9 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
         <div>
           <div class="eyebrow">Background</div>
           <h2>Why this Master</h2>
-          <p>In a fast-changing environment (political, economic, social, cultural, technological) in which governments, workers' organizations and employers and business membership organizations have to adapt their strategies continuously, a better understanding of the contemporary trends and challenges of different industrial and employment relations in the world is a compelling need.</p>
-          <p>To provide labour relations practitioners the best learning environment and the opportunity to engage in deep discussions related to Industrial and Employment Relations, the International Training Centre of the International Labour Organization (ITCILO), in partnership with the University of Turin, Italy, is offering a Master in Industrial and Employment Relations. It includes a distance-learning phase with synchronous activities (weekly live Webinars), and an optional residential phase at the ITCILO campus in Turin, Italy, to deep dive in our learning centre, followed by a second distance learning phase for the preparation of the Master's thesis.</p>
-          <p>The online learning journey allows students to engage continuously with a global faculty coming from a wide range of institutions, from the ILO to universities, training and research institutions around the world. The Master also provides opportunity to live a learning experience with practitioners and students coming from all the regions of the world.</p>
+          <p>Governments, workers' organizations and employers' and business membership organizations operate in a political, economic, social, cultural and technological environment that obliges them to adapt their strategies continuously. A sound understanding of contemporary trends and challenges across different industrial and employment relations systems has become a compelling professional need.</p>
+          <p>The International Training Centre of the International Labour Organization, in partnership with the University of Turin, offers the Online Master in Industrial and Employment Relations to meet that need. The programme runs over ten months and carries 60 ECTS credits. It combines a distance learning phase with live webinars, an optional residential phase at the ITCILO campus in Turin and at ILO headquarters in Geneva, and a final distance learning phase devoted to the Master's thesis.</p>
+          <p>The online learning journey allows students to engage continuously with a global faculty drawn from the ILO, from universities and from training and research institutions worldwide, alongside practitioners and fellow students from every region of the world.</p>
           <p>The Master's programme combines the sound academic background of the University of Turin with the ITCILO's international training experience. An international approach has been applied to the content, the methodology as well as to the composition of the faculty.</p>
         </div>
         <div class="grid" style="align-content:start">
@@ -501,14 +521,14 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
     <div class="wrap">
       <div class="eyebrow">Objectives</div>
       <h2>What you will be able to do</h2>
-      <p class="lead">The Master in Industrial and Employment Relations is designed to provide a wide spectrum of knowledge and skills for those with professional interests in industrial and employment relations. In addition, students will be exposed to international and comparative industrial and employment relations systems with a view to better understanding the implications for current industrial relations systems and practices.</p>
-      <p style="margin-top:1.4rem"><strong style="color:var(--itc-blue)">On successful completion of the Master's programme, participants will be able to:</strong></p>
+      <p class="lead">The programme addresses the question of how to support governments, employers' organizations and workers' organizations on industrial relations matters within systems that are unfamiliar. Students are exposed to international and comparative industrial and employment relations systems, with a view to understanding the implications for current systems and practices.</p>
+      <p style="margin-top:1.4rem"><strong style="color:var(--itc-blue)">On successful completion of the Master's programme, students will be able to:</strong></p>
       <ul class="dash" style="max-width:80ch">
-        <li>Describe industrial and employment relations systems with a comparative approach;</li>
-        <li>Critically reflect upon theoretical approaches and analyse their application to achieve effective industrial and employment relations strategies;</li>
-        <li>Apply multi-disciplinary knowledge to industrial relations-related decision making;</li>
-        <li>Apply tools and methodologies for effective labour-management relations at different levels of the economy from enterprise to the national and international level;</li>
-        <li>Advise government, employers' and workers' representatives on industrial and employment relations issues.</li>
+        <li>Compare industrial and employment relations systems across countries using established analytical frameworks;</li>
+        <li>Apply legal, economic and social science reasoning to industrial relations decisions;</li>
+        <li>Use labour and management relations tools at every level, from the enterprise to the international level;</li>
+        <li>Advise government, employers' and workers' representatives on industrial and employment relations questions;</li>
+        <li>Conduct and defend original applied research in the field.</li>
       </ul>
     </div>
   </section>
@@ -517,7 +537,7 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
     <div class="wrap">
       <div class="eyebrow">Structure and content</div>
       <h2>Three phases</h2>
-      <p class="lead">The Master's Programme will be divided into two mandatory distance-learning phases and one face-to-face component that is optional. During Phase 1, the programme's online sessions typically take place on Mondays and Thursdays from 14:00 to 15:30 and from 16:00 to 17:30 (CEST/CET, Turin time). Participants are informed in advance of any adjustments to the schedule.</p>
+      <p class="lead">The Master's Programme will be divided into two mandatory distance-learning phases and one face-to-face component that is optional. During Phase 1, the programme's online sessions typically take place on Mondays and Thursdays from 14:00 to 15:30 and from 16:00 to 17:30 (CEST/CET, Turin time). Students are informed in advance of any adjustments to the schedule.</p>
       <div class="grid g3" style="margin-top:1.4rem">
         <div class="card" style="padding:0;overflow:hidden">
           <div style="background:var(--itc-blue);color:#fff;padding:1rem 1.2rem">
@@ -560,28 +580,14 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
 
   <section class="block alt">
     <div class="wrap">
-      <div class="grid g2">
+      <div>
         <div>
           <div class="eyebrow">Methodology</div>
           <h2>How you will learn</h2>
           <p>Professors, practitioners and other resource persons will use lectures, case-studies, case law judgments, excerpts of collective agreements and legislation, discussions, group-work and practical exercises to strike a balance between theory and practice and to stimulate interaction with the resource persons and among students.</p>
           <h3 style="margin-top:1.4rem">Resource persons</h3>
-          <p>Resource persons are selected based on their professional experience and subject matter expertise. They consist of experts from the ILO and ITCILO, university professors and practitioners.</p>
+          <p>Resource persons are selected on their professional experience and subject matter expertise. They are experts from the ILO and the ITCILO, university professors and practitioners. Seven Masterclasses open the main blocks of the programme and are listed under Programme.</p>
           <p><a href="#programme" data-goto="programme" data-sub="faculty">See the full faculty index →</a></p>
-        </div>
-        <div>
-          <div class="eyebrow">Fees and applications</div>
-          <h2>Fees, applications and scholarships</h2>
-          <ul class="dash">
-            <li><strong>Tuition fees:</strong> 9,900 Euros payable by the student or his/her sponsoring organization.</li>
-            <li>Tuition and accommodation fees for the face-to-face 2027 to be determined. For information, the cost in 2026 was 3,490 Euros.</li>
-            <li><strong>Deadline to apply for the Master:</strong> 30 January 2026.</li>
-            <li><strong>Deadline to apply for the face-to-face optional phase:</strong> 31 January 2027.</li>
-          </ul>
-          <h3>Partial scholarships</h3>
-          <p style="font-size:.92rem">A limited number of partial scholarships is available, on a competitive basis, for students from developing countries. If you wish to apply for a partial scholarship, please specify it on the application form. The selection criteria will include academic and professional qualifications, organization, country of origin and gender balance. Apart from these partial scholarships, there is no other financial support provided by ITCILO including from ACTRAV and ACTEMP.</p>
-          <p style="font-size:.92rem;margin-bottom:0">The ITCILO's payment, cancellation and refund policy can be consulted at <a href="https://www.itcilo.org/turin-school-of-development/admission" target="_blank" rel="noopener">itcilo.org/turin-school-of-development/admission</a>.</p>
-          <div class="note" style="margin-top:1rem">Dates, fees and deadlines reproduced from the 2026–2027 flyer. <strong>Always check the live course page</strong> before quoting them.</div>
         </div>
       </div>
     </div>
@@ -594,7 +600,7 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
     <div class="wrap">
       <div class="eyebrow">Phase 1</div>
       <h2>Programme 2026–2027</h2>
-      <p class="lead">Every live session of the distance-learning phase, from the opening on 21 September 2026 to the closing session on 29 April 2027. All times are Turin time (CEST/CET).</p>
+      <p class="lead">The distance learning phase runs from the opening on 21 September 2026 to the closing session on 29 April 2027, across seven macro-competence areas and five examinations. Seven Masterclasses open the main blocks of the programme and are listed below. All times are Turin time (CEST/CET).</p>
 
       <div class="grid g4" style="margin:1.6rem 0">
         <div class="stat"><div class="n" id="stP1">—</div><div class="l">Live sessions</div></div>
@@ -628,7 +634,6 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
             <select class="sel" id="monthSel" aria-label="Jump to month"><option value="">All months</option></select>
             <button class="chip" type="button" id="hideDone" aria-pressed="false" style="border-color:var(--a-var);color:var(--a-var)"><span class="dot" style="background:var(--a-var)"></span>Hide sessions I marked</button>
             <button class="chip" type="button" id="onlyConf" aria-pressed="false" style="border-color:#146B33;color:#146B33"><span class="dot" style="background:#146B33"></span>Confirmed sessions only</button>
-            <button class="btn ghost sm" type="button" id="icsAll">Add confirmed sessions to calendar</button>
             <button class="btn ghost sm" type="button" id="printBtn">Print</button>
             <button class="btn ghost sm" type="button" id="resetBtn">Reset filters</button>
           </div>
@@ -770,10 +775,6 @@ footer .small{font-size:.74rem;color:#B9CBEC;border-top:1px solid rgba(255,255,2
         <h3>Contact</h3>
         <p style="font-size:.88rem;color:#D5E1F7;margin:0">Tel. +39 011 693 6917<br><a href="mailto:mier@itcilo.org">mier@itcilo.org</a><br><a href="https://ecampus.itcilo.org" target="_blank" rel="noopener">ecampus.itcilo.org</a></p>
       </div>
-      <div>
-        <h3>Apply</h3>
-        <p style="font-size:.88rem;color:#D5E1F7;margin:0"><a href="https://oarf2.itcilo.org/CST/A9718856/en" target="_blank" rel="noopener">Online application form</a><br><a href="https://www.itcilo.org/turin-school-of-development/admission" target="_blank" rel="noopener">Payment, cancellation and refund policy</a></p>
-      </div>
     </div>
     <div class="footlogos">
       <img class="lb-itc" src="assets/logo-itcilo.png" alt="Turin School of Development, International Training Centre of the ILO">
@@ -838,8 +839,8 @@ function rpName(n){return RP_ALIASES[n]||n;}
 
 /* Every live session uses the same Zoom room. The link carries the passcode,
    which is one more reason this repository stays private. */
-var ZOOM_URL='';
-var ZOOM_ID='';
+var ZOOM_URL='https://itcilo-org.zoom.us/j/64137683716?pwd=4tBMMohFbKh7xEb50LJFTgs7UYfe6e.1';
+var ZOOM_ID='641 3768 3716';
 
 /* Google Maps JavaScript API key for the cohort map.
    Restrict it in the Google Cloud console to the Maps JavaScript API and to
@@ -879,6 +880,7 @@ var CRITERIA=[
 
 /* ================= helpers ================= */
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+var CAL_ICON='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>';
 var ZOOM_ICON='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 10l5-3v10l-5-3z"/><rect x="2" y="6" width="13" height="12" rx="2.5"/></svg>';
 var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 var MSHORT=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1007,15 +1009,51 @@ document.getElementById('stP1').textContent=sessions.length;
 document.getElementById('stP2').textContent=Object.keys(days).length;
 document.getElementById('stP3').textContent=Object.keys(people).length;
 
-/* Participants join the live sessions from the ITCILO eCampus. The Zoom room
-   is not published on this page. */
-document.getElementById('joinBar').innerHTML=
-  '<div class="joincard"><div class="jc-txt">'+
-    '<div class="jc-eyebrow">Live sessions</div>'+
-    '<h3>Sessions run live, twice a session day</h3>'+
-    '<p>Phase 1 is delivered online, normally on Mondays and Thursdays, 14:00 to 15:30 and 16:00 to 17:30 Turin time. '+
-    'Check the agenda for the days that differ. Enrolled participants join from the ITCILO eCampus.</p>'+
-  '</div></div>';
+/* ================= join panel ================= */
+(function(){
+  var host=document.getElementById('joinBar');
+  var todayConfirmed=confirmed.filter(function(s){return s.date===TODAY;});
+  var live=todayConfirmed.length>0;
+  var nextConfirmed=null;
+  for(var i=0;i<confirmed.length;i++){if(confirmed[i].date>=TODAY){nextConfirmed=confirmed[i];break;}}
+  var txt;
+  if(live){
+    txt=todayConfirmed.length+' confirmed session'+(todayConfirmed.length===1?'':'s')+' today: '+
+      todayConfirmed.map(function(s){return s.time;}).join(' and ')+' Turin time.'+
+      ' Meeting ID <strong>'+ZOOM_ID+'</strong>. The link carries the passcode.';
+  }else if(nextConfirmed){
+    txt='The next confirmed session is '+esc(nextConfirmed.title)+', on '+fmtDay(nextConfirmed.date)+
+      ' at '+esc(nextConfirmed.time)+' Turin time. Meeting ID <strong>'+ZOOM_ID+'</strong>. The link carries the passcode.';
+  }else{
+    txt='No further session has been confirmed. The link is published here as each session is confirmed in the agenda.';
+  }
+  host.innerHTML=
+    '<div class="joincard'+(live?' live':'')+'">'+
+      '<div class="jc-txt">'+
+        '<div class="jc-eyebrow">'+(live?'Confirmed sessions today':'Live sessions')+'</div>'+
+        '<h3>Every confirmed session uses the same Zoom room</h3>'+
+        '<p>'+txt+'</p>'+
+      '</div>'+
+      (nextConfirmed
+        ? '<div class="jc-act">'+
+            '<a class="btn join lg" href="'+ZOOM_URL+'" target="_blank" rel="noopener">'+ZOOM_ICON+(live?'Join the Zoom session':'Join the next confirmed session')+'</a>'+
+            '<button class="btn ghost sm" type="button" id="copyZoom">Copy the link</button>'+
+          '</div>'
+        : '')+
+    '</div>';
+  if(!nextConfirmed)return;
+  document.getElementById('copyZoom').addEventListener('click',function(){
+    var btn=this;
+    function done(ok){btn.textContent=ok?'Copied':'Copy failed';setTimeout(function(){btn.textContent='Copy the link';},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(ZOOM_URL).then(function(){done(true);},function(){done(false);});
+    }else{
+      var ta=document.createElement('textarea');ta.value=ZOOM_URL;document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');done(true);}catch(e){done(false);}
+      document.body.removeChild(ta);
+    }
+  });
+})();
 
 /* ================= spine ================= */
 var SEGMENTS=(function(){
@@ -1135,7 +1173,7 @@ function drawNow(){
         '<div class="cd"><div class="n">'+sessions.length+'</div><div class="l">Sessions ahead</div></div>'+
         '<div class="cd"><div class="n">'+daysBetween(TODAY,SUBMIT_DATE)+'</div><div class="l">Days to submission</div></div>'+
       '</div>'+
-      (ZOOM_URL&&sessions[0].confirmed?'<a class="btn join" href="'+ZOOM_URL+'" target="_blank" rel="noopener" style="margin-top:1rem">'+ZOOM_ICON+'Join the Zoom session</a>':'')+
+      (sessions[0].confirmed?'<a class="btn join" href="'+ZOOM_URL+'" target="_blank" rel="noopener" style="margin-top:1rem">'+ZOOM_ICON+'Join the Zoom session</a>':'')+
       '</div></div>';
   } else if(next){
     var dn=daysBetween(TODAY,next.date);
@@ -1147,7 +1185,7 @@ function drawNow(){
       (next.reading?'<div class="read">Mandatory reading: '+esc(next.reading)+'</div>':'')+
       '<div class="pills" style="margin-top:.7rem"><span class="tag area" style="--ac:'+AREA_HEX[next.area]+'">'+esc(next.area)+'</span>'+
         (next.confirmed?'':'<span class="tag tbc">To be confirmed</span>')+'</div>'+
-      (ZOOM_URL&&next.confirmed?'<a class="btn join" href="'+ZOOM_URL+'" target="_blank" rel="noopener" style="margin-top:1rem">'+ZOOM_ICON+'Join the Zoom session</a>':'')+
+      (next.confirmed?'<a class="btn join" href="'+ZOOM_URL+'" target="_blank" rel="noopener" style="margin-top:1rem">'+ZOOM_ICON+'Join the Zoom session</a>':'')+
       '<div class="countdown">'+
         '<div class="cd"><div class="n">'+doneCount+'</div><div class="l">Sessions delivered</div></div>'+
         '<div class="cd"><div class="n">'+(sessions.length-doneCount)+'</div><div class="l">Sessions remaining</div></div>'+
@@ -1267,7 +1305,7 @@ function render(){
     shown++;
     if(group!==it.date){flush();group=it.date;
       html='<div class="daygroup"><div class="dayhead"><span class="dow">'+dow(it.date)+'</span><span class="dt">'+fmtDay(it.date)+'</span>'+
-        (ZOOM_URL&&it.date===TODAY&&confirmedDays[it.date]
+        (it.date===TODAY&&confirmedDays[it.date]
           ? '<a class="daylink live" href="'+ZOOM_URL+'" target="_blank" rel="noopener">'+ZOOM_ICON+'Join today</a>'
           : '')+
         '<span class="wk">Turin time</span></div>';
@@ -1282,8 +1320,9 @@ function render(){
         ? '<div class="rp">Resource person: <b>'+esc(it.rp)+'</b></div>'
         : '<div class="rp">Resource person to be confirmed</div>')+
       (it.reading?'<div class="read">Mandatory reading: '+esc(it.reading)+'</div>':'')+
-      (ZOOM_URL&&it.confirmed
-        ? '<a class="seslink" href="'+ZOOM_URL+'" target="_blank" rel="noopener">'+ZOOM_ICON+(it.date===TODAY?'Join today':'Join on Zoom')+'</a>'
+      (it.confirmed
+        ? (ZOOM_URL?'<a class="seslink" href="'+ZOOM_URL+'" target="_blank" rel="noopener">'+ZOOM_ICON+(it.date===TODAY?'Join today':'Join on Zoom')+'</a>':'')+
+          '<button class="seslink cal" type="button" data-ics="'+esc(id)+'">'+CAL_ICON+'Add to calendar</button>'
         : '')+
       '</div>'+
       '<button class="mark" type="button" data-id="'+esc(id)+'" aria-pressed="'+(done?'true':'false')+'" title="Mark this session" aria-label="Mark '+esc(it.title)+' as done">✓</button>'+
@@ -1295,6 +1334,13 @@ function render(){
   document.getElementById('count').innerHTML='Showing <b>'+shown+'</b> of <b>'+sessions.length+'</b> sessions · <b>'+confirmed.length+'</b> confirmed, <b>'+(sessions.length-confirmed.length)+'</b> still to be confirmed'+(filtering?' · examinations and breaks are hidden while filtering':'');
 }
 document.getElementById('agenda').addEventListener('click',function(e){
+  var cal=e.target.closest('[data-ics]');
+  if(cal){
+    var wanted=cal.getAttribute('data-ics'),one=null;
+    for(var i=0;i<sessions.length;i++){if(sid(sessions[i])===wanted){one=sessions[i];break;}}
+    if(one)downloadICS([one],one.title,'mier-'+one.date+'-'+(one.n||'session')+'.ics');
+    return;
+  }
   var b=e.target.closest('.mark'); if(!b)return;
   var id=b.getAttribute('data-id'),on=b.getAttribute('aria-pressed')!=='true';
   if(on)attended[id]=1; else delete attended[id];
@@ -1374,8 +1420,8 @@ function buildICS(list,name){
     if(t.length<2)return;
     var st=t[0].replace(':','')+'00',en=t[1].replace(':','')+'00';
     var desc='Macro-competence area: '+s.area+(s.rp?'\\nResource person: '+s.rp:'')+(s.reading?'\\nMandatory reading: '+s.reading:'')+
-      
-      '\\n\\nMaster in Industrial and Employment Relations, ITCILO and University of Turin.';
+      '\\n\\nJoin the session on Zoom: '+ZOOM_URL+'\\nMeeting ID: '+ZOOM_ID+
+      '\\n\\nOnline Master in Industrial and Employment Relations, ITCILO and University of Turin.';
     L.push('BEGIN:VEVENT');
     L.push('UID:mier-'+d+'-'+st+'-'+i+'@itcilo.org');
     L.push('DTSTAMP:'+stamp);
@@ -1383,6 +1429,9 @@ function buildICS(list,name){
     L.push('DTEND;TZID=Europe/Rome:'+d+'T'+en);
     L.push(fold('SUMMARY:'+icsEscape(s.title)));
     L.push(fold('DESCRIPTION:'+desc));
+    L.push(fold('LOCATION:'+icsEscape(ZOOM_URL)));
+    L.push(fold('URL;VALUE=URI:'+ZOOM_URL));
+    L.push(fold('X-GOOGLE-CONFERENCE:'+ZOOM_URL));
     L.push('END:VEVENT');
   });
   L.push('END:VCALENDAR');
@@ -1398,11 +1447,9 @@ function downloadICS(list,name,file){
     alert('This browser blocked the calendar download. Open the dashboard from the published site and try again.');
   }
 }
-/* Only confirmed sessions are exported. An unconfirmed session has neither a
-   named resource person nor a Zoom link, so it does not belong in a calendar. */
-document.getElementById('icsAll').addEventListener('click',function(){
-  downloadICS(confirmed,'MIER 2026-2027 Phase 1, confirmed sessions','mier-2026-2027-confirmed-sessions.ics');
-});
+/* Only confirmed sessions carry an Add to calendar control, one session per
+   file. An unconfirmed session has no named resource person and no Zoom link,
+   so it does not belong in anyone's calendar yet. */
 
 /* ================= boot ================= */
 drawSpine();drawNow();render();renderFaculty();updateAtt();
