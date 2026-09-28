@@ -17,7 +17,7 @@ A single self-contained `index.html` with no build step and no runtime dependenc
 
 ## Confirmed and unconfirmed sessions
 
-A session is **confirmed** when its cell in the `Confirmed` column of the agenda workbook carries the green fill. 32 of the 115 sessions are confirmed.
+A session is **confirmed** when its cell in the `Confirmed` column of the agenda workbook carries the green fill. 33 of the 115 sessions are confirmed.
 
 A confirmed session publishes the name of its resource person, a **Join on Zoom** button and its own **Add to calendar** control, which downloads a single event. A session still being arranged shows its date, time, title, macro-competence area and mandatory reading, carries a **To be confirmed** tag and reads *Resource person to be confirmed*. It has no name, no join link and no calendar entry, and the name is absent from this repository rather than hidden by the interface.
 
