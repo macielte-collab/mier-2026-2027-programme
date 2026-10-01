@@ -19,7 +19,7 @@ A single self-contained `index.html` with no build step and no runtime dependenc
 
 A session is **confirmed** when its cell in the `Confirmed` column of the agenda workbook carries the green fill. 33 of the 115 sessions are confirmed.
 
-A confirmed session publishes the name of its resource person, a **Join on Zoom** button and its own **Add to calendar** control, which downloads a single event. A session still being arranged shows its date, time, title, macro-competence area and mandatory reading, carries a **To be confirmed** tag and reads *Resource person to be confirmed*. It has no name, no join link and no calendar entry, and the name is absent from this repository rather than hidden by the interface.
+A confirmed session publishes the name of its resource person, a **Join on Zoom** button and its own **Add to calendar** control, which downloads a single event. A session still being arranged shows its date, time, title and macro-competence area, carries a **To be confirmed** tag and reads *Resource person to be confirmed*. It has no name, no join link and no calendar entry, and the name is absent from this repository rather than hidden by the interface.
 
 ## The Zoom room
 
@@ -32,7 +32,7 @@ To change the room, edit `ZOOM_URL` and `ZOOM_ID` near the top of the script blo
 This page is public, so it carries none of the following:
 
 - The cohort. No student names, countries, employers or positions.
-- The eLibrary. The mandatory readings are named in the agenda but the files are not published here; they are copyrighted works made available to enrolled students on the eCampus.
+- The eLibrary. Course readings are copyrighted works made available to enrolled students on the eCampus and are not published here.
 
 The complete dashboard, cohort panel and readings included, lives in a separate private repository and belongs behind the course login.
 
